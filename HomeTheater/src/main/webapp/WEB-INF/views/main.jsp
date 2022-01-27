@@ -46,10 +46,10 @@ h4{
 	<h4 class="sub_title">현재 상영작</h4><br>
 	
 	<ul>
-		<li><img class="movie_img" src="img/1.jpg" alt=""></li>
-		<li><img class="movie_img" src="img/2.jpg" alt=""></li>
-		<li><img class="movie_img" src="img/3.jpg" alt=""></li>
-		<li><img class="movie_img" src="img/4.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/baseball.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/belgium.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/chosun.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/GunPeople.jpg" alt=""></li>
 	</ul>
 	<ul>
 		<li><a href="#"> 영화정보 </a>|<a href="#"> 상영시간 </a>|<a href="#"> 예매하기 </a></li>
@@ -63,10 +63,10 @@ h4{
 	<h4 class="sub_title">상영 예정작</h4><br>
 
 	<ul>
-		<li><img class="movie_img" src="img/1-1.jpg" alt=""></li>
-		<li><img class="movie_img" src="img/1-2.jpg" alt=""></li>
-		<li><img class="movie_img" src="img/1-3.jpg" alt=""></li>
-		<li><img class="movie_img" src="img/1-4.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/pregnantTree.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/sewingSister.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/TheShamanSorceress.jpg" alt=""></li>
+		<li><img class="movie_img" src="img/vacation.jpg" alt=""></li>
 	</ul>
 	
 	<h1>______</h1>
