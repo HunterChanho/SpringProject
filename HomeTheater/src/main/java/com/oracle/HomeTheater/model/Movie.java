@@ -14,8 +14,8 @@ public class Movie {
 	private String mo_age;
 	private String mo_playTime;
 	private String mo_openDate;
-	private int recommendation;
-	private String fileName;
+	private int mo_recommendation;
+	private String mo_fileName;
 	
 	//조회용
 	private int start;			private int end;

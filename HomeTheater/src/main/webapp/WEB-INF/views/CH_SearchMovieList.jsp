@@ -34,13 +34,14 @@ td{
 		<c:if test="${fn:length(SearchMovieList)!=0 }">
 		<table>
 			<tr>
-				<th>이미지</th><th>영화제목</th><th>감독</th><th>배우</th>
+				<th>포스터</th><th>영화제목</th><th>감독</th><th>배우</th>
 				<th>장르</th><th>연령등급</th><th>런타임</th><th>개봉날짜</th>
 			<tr>
 			
 			<c:forEach var="movie" items="${SearchMovieList }">
 			<tr>
-				<td>${movie.mo_number}</td><td>${movie.mo_title}</td><td>${movie.mo_director}</td>
+				<td><img src="${movie.mo_fileName}" style="width: 150px; height: 200px;" ></td>
+				<td>${movie.mo_title}</td><td>${movie.mo_director}</td>
 				<td>${movie.mo_actor}</td><td>${movie.mo_genre}</td><td>${movie.mo_age}</td>
 				<td>${movie.mo_playTime}시간</td><td>${movie.mo_openDate}</td>
 			</tr>
