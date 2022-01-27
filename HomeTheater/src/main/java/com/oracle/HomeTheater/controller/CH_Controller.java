@@ -23,13 +23,18 @@ public class CH_Controller {
 		return "main";
 	}
 	
-	@RequestMapping(value="SearchMovieList")
-	public String list(Movie movie, Model model) {
-		System.out.println("CH_Contorller Start list...");
+//	@GetMapping(value = "SearchMovieList")
+//	public String SearchMovieList(String mo_title, Model model) {
+//		System.out.println("CH_Controller SearchMovieList Start...");
+//		Movie movie = cs.SearchMovieList(mo_title);
+//		model.addAttribute("movie",movie);
+//		return "SearchMovieList";
+//	}
+	
+	@GetMapping(value = "SearchMovieList")
+	public String SearchMovieList(Movie movie, Model model) {
 		List<Movie> SearchMovieList = cs.SearchMovieList(movie);
-		System.out.println("CH_Contorller SearchMovieList.size()=>"+SearchMovieList.size());
 		model.addAttribute("SearchMovieList",SearchMovieList);
-		
 		return "SearchMovieList";
 	}
 	

@@ -6,6 +6,6 @@
 		select Count(*) FROM movie
 	</select>
 	<select id="CH_SearchMovieList" parameterType="Movie" resultType="Movie">
-		select * from movie where mo_title like '${mo_title}'
+		select * from movie where mo_title like '%${mo_title}%'
 	</select>
 </mapper>

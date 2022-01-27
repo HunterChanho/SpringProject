@@ -11,22 +11,6 @@
 	font-family: 'Noto Serif KR', serif;
 
 }
-.container{
-	text-align: center;
-	width: 1000px;
-}
-.btn{
-	background-color: white;
-	border-color: black;
-	border: 1px solid black;
-    border-radius: 10px;
-    font-size: 12px;
-}
-a{
-	color: black;
-	border-radius: 5px;
-	font-size: 15px;
-}
 .logo{
 	text-align: left;
 	margin-bottom: -20px;
@@ -73,17 +57,17 @@ a:hover{
 	</div>	
 
 <nav class="top_menu">
+	<form action="SearchMovieList" method="get">
 	<ul>
 		<li><a class="menuLink" href="#">영화</a></li>
 		<li><a class="menuLink" href="#">추천영화</a></li>
 		<li><a class="menuLink" href="#">공지사항</a></li>
-		<li><a class="menuLink" href="#">고객센터</a></li>
+		<li><a class="menuLink" href="#">고객센터</a></li>	
 		<li><i class="fas fa-search" style="font-size: 15px;"></i>&nbsp;
-		<form action="SearchMovieList">
-			<input type="search" name="mo_title" style="width: 100px;" placeholder="검색"></li>
-			<input type="submit" value="검색">
-		</form>
+		<input type="text" name="mo_title" value="${movie.mo_title}" style="width: 100px;" placeholder="검색">
+		<input type="submit" value="검색"></li>
 	</ul>
+	</form>
 </nav>
 </body>
 </html>

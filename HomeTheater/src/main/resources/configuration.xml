@@ -3,6 +3,6 @@
 
 <configuration>
 	<typeAliases>
-
+		<typeAlias alias="Movie" type="com.oracle.HomeTheater.model.Movie"/>
 	</typeAliases>
 </configuration>

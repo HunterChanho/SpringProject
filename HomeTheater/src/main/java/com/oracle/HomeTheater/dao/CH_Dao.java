@@ -7,7 +7,7 @@ import com.oracle.HomeTheater.model.Movie;
 public interface CH_Dao {
 
 	int total();
-
+//	Movie SearchMovieList(String mo_title);
 	List<Movie> SearchMovieList(Movie movie);
 
 }

@@ -22,14 +22,24 @@ public class CH_ServiceImpl implements CH_Service {
 		return totCnt;
 	}
 
+
+
+
+//	@Override
+//	public Movie SearchMovieList(String mo_title) {
+//		Movie movie = null;
+//		System.out.println("CH_ServiceImpl SearchMovieList Start...");
+//		movie = cd.SearchMovieList(mo_title);
+//		return movie;
+//	}
+
 	@Override
 	public List<Movie> SearchMovieList(Movie movie) {
 		List<Movie> SearchMovieList = null;
-		System.out.println("CH_ServiceImpl SearchMovieList Start...");
 		SearchMovieList = cd.SearchMovieList(movie);
-		System.out.println("CH_ServiceImpl SearchMovieList.size()->"+SearchMovieList.size());
 		return SearchMovieList;
 	}
+	
 	
 	
 
