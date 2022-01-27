@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet"><meta charset="UTF-8">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -9,7 +10,21 @@
 <style>
 *{
 	font-family: 'Noto Serif KR', serif;
-
+}
+.container{
+	text-align: center;
+	width: 1000px;
+}
+.btn{
+	background-color: white;
+	border-color: black;
+	border: 1px solid black;
+    border-radius: 10px;
+    font-size: 12px;
+}
+.content{
+	overflow-x: hidden;
+	width: 1000px;
 }
 .logo{
 	text-align: left;
@@ -26,6 +41,11 @@ li{
 	list-style: none;
 	display: inline-block;
 	margin: auto 10px;
+}
+a{
+	color: black;
+	border-radius: 5px;
+	font-size: 15px;
 }
 a:hover{
 	color: black;
@@ -46,7 +66,7 @@ a:hover{
 </head>
 <body>
 <div class="logo">
-	<a href="#">
+	<a href="main">
 		<img src="img/logo1.png" style="" width="250px" height="100">
 	</a>
 </div>

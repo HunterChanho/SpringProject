@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.service.CH_Service;
-import com.oracle.HomeTheater.service.Paging;
 
 @Controller
 public class CH_Controller {
