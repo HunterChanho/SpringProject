@@ -19,6 +19,8 @@ th{
 }
 td{
 	font-size: 15px;
+	width: 100px;
+	
 }
 </style>
 </head>

@@ -62,6 +62,13 @@ a:hover{
 .login_logout{
 	text-align: right;
 }
+.submitBtn{
+	background-color: white;
+	border-color: black;
+	border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+}
 </style>
 </head>
 <body>
@@ -85,7 +92,7 @@ a:hover{
 		<li><a class="menuLink" href="#">고객센터</a></li>	
 		<li><i class="fas fa-search" style="font-size: 15px;"></i>&nbsp;
 		<input type="text" name="mo_title" value="${movie.mo_title}" style="width: 100px;" placeholder="검색">
-		<input type="submit" value="검색"></li>
+		<input type="submit" class="submitBtn" value="검색"></li>
 	</ul>
 	</form>
 </nav>

@@ -34,7 +34,7 @@ public class CH_Controller {
 	public String SearchMovieList(Movie movie, Model model) {
 		List<Movie> SearchMovieList = cs.SearchMovieList(movie);
 		model.addAttribute("SearchMovieList",SearchMovieList);
-		return "SearchMovieList";
+		return "CH_SearchMovieList";
 	}
 	
 }
