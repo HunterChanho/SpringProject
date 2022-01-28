@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oracle.HomeTheater.dao.CH_Dao;
+import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.Movie;
 
 @Service
@@ -22,24 +23,23 @@ public class CH_ServiceImpl implements CH_Service {
 		return totCnt;
 	}
 
-
-
-
-//	@Override
-//	public Movie SearchMovieList(String mo_title) {
-//		Movie movie = null;
-//		System.out.println("CH_ServiceImpl SearchMovieList Start...");
-//		movie = cd.SearchMovieList(mo_title);
-//		return movie;
-//	}
-
 	@Override
 	public List<Movie> SearchMovieList(Movie movie) {
+		System.out.println("CH_ServiceImpl SearchMovieList Start...");
 		List<Movie> SearchMovieList = null;
 		SearchMovieList = cd.SearchMovieList(movie);
 		return SearchMovieList;
 	}
-	
+
+	@Override
+	public List<Bbs> SearchBbsList(Bbs bbs) {
+		System.out.println("CH_ServiceImpl SearchBbsList Start...");
+		List<Bbs> SearchBbsList = null;
+		SearchBbsList = cd.SearchBbsList(bbs);
+		return SearchBbsList;
+	}
+
+		
 	
 	
 

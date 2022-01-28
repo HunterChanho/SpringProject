@@ -8,4 +8,7 @@
 	<select id="CH_SearchMovieList" parameterType="Movie" resultType="Movie">
 		select * from movie where mo_title like '%${mo_title}%'
 	</select>
+	<select id="CH_SearchBbsList" parameterType="Bbs" resultType="Bbs">
+		select * from bbs where bbs_title like '%${bbs_title}%' 
+	</select>
 </mapper>
