@@ -94,7 +94,7 @@ a:hover{
 		<a href="#">Login </a>&nbsp;|&nbsp; 
 		<a href="#">Join</a>
 	</div>	
-
+ 
 <nav class="top_menu">
 	<form name="searchInfo" action="SearchTotalList" method="get">
 	<ul>
@@ -104,7 +104,8 @@ a:hover{
 		<li><a class="menuLink" href="#">고객센터</a></li>	
 		<li><i class="fas fa-search" style="font-size: 15px;"></i>&nbsp;
 		<input type="text" name="mo_title" id="mo_title" style="width: 100px;" placeholder="통합 검색" 
-			   required oninvalid="this.setCustomValidity('검색어를 입력해주세요.')">	
+			   required oninvalid="this.setCustomValidity('검색어를 입력해주세요.')"
+			   oninput = "setCustomValidity('')"/>	
 		<input type="hidden" name="bbs_title" id="bbs_title">		
 		<input type="submit" class="submitBtn" value="검색" onclick="getInputValue();"></li>
 	</ul>
