@@ -23,23 +23,20 @@ public class CH_Controller {
 		return "main";
 	}
 	
-	// 영화 검색
-	@GetMapping(value = "SearchMovieList")
-	public String SearchMovieList(Movie movie, Model model) {
-		System.out.println("CH_Controller SearchMovieList Start...");
+	
+	@GetMapping(value="SearchTotalList")
+	public String list(Movie movie, Bbs bbs, Model model) {
+		System.out.println("CH_Contorller SearchTotalList Start list...");
 		List<Movie> SearchMovieList = cs.SearchMovieList(movie);
+		List<Bbs> SearchBbsList = cs.SearchBbsList(bbs);
+		System.out.println("CH_Contorller SearchMovieList.size()=>"+SearchMovieList.size());
+		System.out.println("CH_Contorller SearchBbsList.size()=>"+SearchBbsList.size());
 		model.addAttribute("SearchMovieList",SearchMovieList);
-		return "CH_SearchTotalList";
+		model.addAttribute("SearchBbsList",SearchBbsList);
+		
+		return "CH_view/CH_SearchTotalList";
 	}
 	
-	// 게시판 검색
-	@GetMapping(value = "SearchBbsList")
-	public String SearchBbsList(Bbs bbs, Model model) {
-		System.out.println("CH_Contoller SearchBbsList Start...");
-		List<Bbs> SearchBbsList = cs.SearchBbsList(bbs);
-		model.addAttribute("SearchBbsList", SearchBbsList);
-		return "CH_SearchTotalList";
-	}
 	
 	
 }

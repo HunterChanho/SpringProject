@@ -7,8 +7,8 @@ import com.oracle.HomeTheater.model.Movie;
 
 public interface CH_Dao {
 
-	int total();
 	List<Movie> SearchMovieList(Movie movie);
 	List<Bbs> SearchBbsList(Bbs bbs);
+
 
 }

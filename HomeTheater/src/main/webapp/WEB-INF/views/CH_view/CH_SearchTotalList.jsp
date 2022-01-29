@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<title>SearchMovieList</title>
+<title>통합검색</title>
 <style>
 table{
 	margin-left:auto; 
@@ -16,9 +15,16 @@ table{
  	width: 600px;
  	height: 100px;
 }
-td{
+.movieList td{
 	font-size: 15px;
 	text-align: left;
+}
+.bbsList td{
+	font-size: 15px;
+	text-align: center;
+}
+th{
+	font-size: 15px;
 }
 </style>
 </head>
@@ -27,11 +33,13 @@ td{
 
 <!-- 영화검색 리스트 -->
  <div class="content">
- 	<%@ include file="header.jsp" %>
+  <div class="movieList">
+ 	<%@ include file="../header.jsp" %>
 		<c:if test="${fn:length(SearchMovieList)==0}">
 			<h1>-영화정보-</h1>
 			<hr>
-			<h2>검색에 맞는 결과값이 없습니다.</h2>
+			<h2>**** 입력하신 영화가 없습니다. ****</h2>
+			<hr>
 		</c:if>
 	
 		<c:if test="${fn:length(SearchMovieList)!=0 }">
@@ -54,14 +62,15 @@ td{
 				<hr>
 			</c:forEach>
 		</c:if>
+  </div>	
  </div>
-  <%@ include file="footer.jsp"%>
- 
- <%-- <div class="content">
+ <!-- 게시판 검색 리스트  -->
+ <div class="content">
+  <div class="bbsList">
  	<c:if test="${fn:length(SearchBbsList)==0}">
 		<h1>-게시판 정보-</h1>
 		<hr>
-		<h2>검색에 맞는 결과값이 없습니다.</h2>
+		<h2>검색에 맞는 게시물이 없습니다.</h2>
 	</c:if>
  	<c:if test="${fn:length(SearchBbsList)!=0 }">
 			<h1>-게시판 정보-</h1>
@@ -79,10 +88,12 @@ td{
 					</tr>
 					</c:forEach>
 				</table>
-				<hr>
-		</c:if>
+			<hr>
+	</c:if>
+  </div>
  </div>
- --%> 	
+ <%@ include file="../footer.jsp"%>
+ 
 </div>
 </body>
 </html>

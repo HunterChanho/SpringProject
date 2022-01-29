@@ -14,15 +14,6 @@ public class CH_ServiceImpl implements CH_Service {
 	@Autowired
 	private CH_Dao cd;
 
-
-	@Override
-	public int total() {
-		System.out.println("CH_ServiceImpl Start total...");
-		int totCnt = cd.total();
-		System.out.println("CH_ServiceImpl total totCnt->"+totCnt);
-		return totCnt;
-	}
-
 	@Override
 	public List<Movie> SearchMovieList(Movie movie) {
 		System.out.println("CH_ServiceImpl SearchMovieList Start...");
@@ -38,6 +29,11 @@ public class CH_ServiceImpl implements CH_Service {
 		SearchBbsList = cd.SearchBbsList(bbs);
 		return SearchBbsList;
 	}
+
+
+
+
+
 
 		
 	

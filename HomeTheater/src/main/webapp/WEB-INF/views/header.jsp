@@ -4,8 +4,20 @@
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet"><meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script type="text/javaScript">
+	
+	function getInputValue(){
+		// input에 받은 text값을 bbs_title에도 넘겨주기위한 기능
+		var valueByName = $('input[name=mo_title]').val();
+		$("#bbs_title").val(valueByName);
+	}
+	
+	
+	
+</script>
 <title>header</title>
 <style>
 *{
@@ -84,15 +96,17 @@ a:hover{
 	</div>	
 
 <nav class="top_menu">
-	<form action="SearchMovieList" method="get">
+	<form name="searchInfo" action="SearchTotalList" method="get">
 	<ul>
 		<li><a class="menuLink" href="#">영화</a></li>
 		<li><a class="menuLink" href="#">추천영화</a></li>
 		<li><a class="menuLink" href="#">공지사항</a></li>
 		<li><a class="menuLink" href="#">고객센터</a></li>	
 		<li><i class="fas fa-search" style="font-size: 15px;"></i>&nbsp;
-		<input type="text" name="mo_title" value="${movie.mo_title}" style="width: 100px;" placeholder="영화 검색">
-		<input type="submit" class="submitBtn" value="검색"></li>
+		<input type="text" name="mo_title" id="mo_title" style="width: 100px;" placeholder="통합 검색" 
+			   required oninvalid="this.setCustomValidity('검색어를 입력해주세요.')">	
+		<input type="hidden" name="bbs_title" id="bbs_title">		
+		<input type="submit" class="submitBtn" value="검색" onclick="getInputValue();"></li>
 	</ul>
 	</form>
 </nav>
