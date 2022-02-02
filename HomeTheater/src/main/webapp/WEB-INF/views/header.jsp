@@ -1,22 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html><html><head>
+<!DOCTYPE html><html><head><meta charset="UTF-8">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet"><meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<script type="text/javaScript">
-	
-	function getInputValue(){
-		// input에 받은 text값을 bbs_title에도 넘겨주기위한 기능
+<script>
+	//input에 받은 text값을 bbs_title에도 넘겨주기위한 기능
+	function getInputValue(){	
 		var valueByName = $('input[name=mo_title]').val();
 		$("#bbs_title").val(valueByName);
 	}
-	
-	
-	
 </script>
 <title>header</title>
 <style>

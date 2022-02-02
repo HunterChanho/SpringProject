@@ -52,7 +52,7 @@ h4{
 		<li><img class="movie_img" src="img/GunPeople.jpg" alt=""></li>
 	</ul>
 	<ul>
-		<li><a href="#"> 영화정보 </a>|<a href="#"> 상영시간 </a>|<a href="#"> 예매하기 </a></li>
+		<li><a href="#"> 영화정보 </a>|<a href="#"> 상영시간 </a>|<a href="/reservation?mo_number=1"> 예매하기 </a></li>
 		<li><a href="#"> 영화정보 </a>|<a href="#"> 상영시간 </a>|<a href="#"> 예매하기 </a></li>
 		<li><a href="#"> 영화정보 </a>|<a href="#"> 상영시간 </a>|<a href="#"> 예매하기 </a></li>
 		<li><a href="#"> 영화정보 </a>|<a href="#"> 상영시간 </a>|<a href="#"> 예매하기 </a></li>

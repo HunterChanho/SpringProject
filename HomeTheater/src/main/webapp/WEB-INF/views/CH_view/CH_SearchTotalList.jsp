@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>통합검색</title>
 <style>
 table{
@@ -38,7 +35,7 @@ th{
 		<c:if test="${fn:length(SearchMovieList)==0}">
 			<h1>-영화정보-</h1>
 			<hr>
-			<h2>**** 입력하신 영화가 없습니다. ****</h2>
+			<h2>**** 입력하신 영화 정보가 없습니다. ****</h2>
 			<hr>
 		</c:if>
 	
@@ -70,7 +67,7 @@ th{
  	<c:if test="${fn:length(SearchBbsList)==0}">
 		<h1>-게시판 정보-</h1>
 		<hr>
-		<h2>검색에 맞는 게시물이 없습니다.</h2>
+		<h2>**** 입력하신 게시물 정보가 없습니다. ****</h2>
 	</c:if>
  	<c:if test="${fn:length(SearchBbsList)!=0 }">
 			<h1>-게시판 정보-</h1>
@@ -91,9 +88,8 @@ th{
 			<hr>
 	</c:if>
   </div>
- </div>
- <%@ include file="../footer.jsp"%>
- 
+  <%@ include file="../footer.jsp"%>
+ </div> 
 </div>
 </body>
 </html>

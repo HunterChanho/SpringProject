@@ -23,6 +23,11 @@ public class CH_Controller {
 		return "main";
 	}
 	
+	@RequestMapping(value = "CH_Payment")
+	public String CH_Payment() {
+		System.out.println("CH_Contorller CH_Payment Start...");
+		return "CH_view/CH_Payment";
+	}
 	
 	@GetMapping(value="SearchTotalList")
 	public String list(Movie movie, Bbs bbs, Model model) {
@@ -36,6 +41,8 @@ public class CH_Controller {
 		
 		return "CH_view/CH_SearchTotalList";
 	}
+	
+	
 	
 	
 	

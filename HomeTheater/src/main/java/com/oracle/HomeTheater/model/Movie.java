@@ -17,6 +17,19 @@ public class Movie {
 	private int mo_recommendation;
 	private String mo_fileName;
 	
-	//조회용
-	private int start;			private int end;
+	 @Override
+	 public String toString() {
+	  return "Movie{" +
+	          "mo_number=" + mo_number +
+	          ", mo_title='" + mo_title + '\'' +
+	          ", mo_director='" + mo_director + '\'' +
+	          ", mo_actor='" + mo_actor + '\'' +
+	          ", mo_genre='" + mo_genre + '\'' +
+	          ", mo_age='" + mo_age + '\'' +
+	          ", mo_playTime='" + mo_playTime + '\'' +
+	          ", mo_openDate='" + mo_openDate + '\'' +
+	          ", mo_recommendation=" + mo_recommendation +
+	          ", mo_fileName='" + mo_fileName + '\'' +
+	          '}';
+	 }
 }
