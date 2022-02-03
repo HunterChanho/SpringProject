@@ -46,4 +46,11 @@ public class IT_ServiceImpl implements IT_Service {
         List<SeatandTime> seatInfo = ITDao.findSeatData(seatandTime);
         return seatInfo;
     }
+
+    @Override
+    public int reservationSave(SeatandTime seatandTime) {
+        log.info("reservationSave(service) start");
+        int result = ITDao.reservationSave(seatandTime);
+        return result;
+    }
 }

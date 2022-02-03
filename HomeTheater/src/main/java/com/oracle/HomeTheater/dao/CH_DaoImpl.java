@@ -6,9 +6,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.Movie;
-import com.oracle.HomeTheater.model.Payment;
+
 
 
 @Repository
@@ -41,16 +42,19 @@ public class CH_DaoImpl implements CH_Dao {
 	}
 
 	@Override
-	public List<Payment> Payments(Payment payment) {
-		System.out.println("CH_DaoImpl payments Start...");
-		List<Payment> Payments = null;
+	public List<Member> SearchMember(Member member) {
+		System.out.println("CH_DaoImpl SearchMember Start...");
+		List<Member> SearchMember = null;
 		try {
-			Payments = session.selectList("CH_Payments", payment);
+			SearchMember = session.selectList("CH_SearchMember", member);
 		} catch (Exception e) {
-			System.out.println("CH_DaoImpl Payments Exception->"+e.getMessage());
+			System.out.println("CH_DaoImpl SearchMember Exception->"+e.getMessage());
 		}
-		return Payments;
+		return SearchMember;
 	}
+
+	
+
 
 
 

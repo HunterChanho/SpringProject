@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oracle.HomeTheater.model.Bbs;
+import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
-import com.oracle.HomeTheater.model.Payment;
 import com.oracle.HomeTheater.service.CH_Service;
 
 @Controller
@@ -30,6 +30,7 @@ public class CH_Controller {
 		return "CH_view/CH_Payment";
 	}
 	
+	// 통합검색
 	@GetMapping(value="SearchTotalList")
 	public String list(Movie movie, Bbs bbs, Model model) {
 		System.out.println("CH_Contorller SearchTotalList Start list...");
@@ -43,13 +44,15 @@ public class CH_Controller {
 		return "CH_view/CH_SearchTotalList";
 	}
 	
-	@RequestMapping(value = "Payment")
-	public String Payments(Payment payment, Model model) {
-		System.out.println("CH_Contorller Payments Start...");
-		List<Payment> Payments = cs.Payments(payment);
-		model.addAttribute("Payments",Payments);
-		return "CH_view/CH_Payment";
+	// 로그인
+	@RequestMapping(value = "login")
+	public String login(Member member, Model model) {
+		System.out.println("CH_Contorller login Start...");
+		List<Member> SearchMember = cs.SearchMember(member);
+		model.addAttribute("SearchMember",SearchMember);
+		return "CH_view/CH_Login";
 	}
+	
 	
 	
 }

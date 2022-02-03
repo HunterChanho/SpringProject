@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oracle.HomeTheater.dao.CH_Dao;
+import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.Movie;
-import com.oracle.HomeTheater.model.Payment;
+
 
 @Service
 public class CH_ServiceImpl implements CH_Service {
@@ -32,12 +33,14 @@ public class CH_ServiceImpl implements CH_Service {
 	}
 
 	@Override
-	public List<Payment> Payments(Payment payment) {
-		System.out.println("CH_ServiceImpl Payments Start...");
-		List<Payment> Payments = null;
-		Payments = cd.Payments(payment);
-		return Payments;
+	public List<Member> SearchMember(Member member) {
+		System.out.println("CH_ServiceImpl SearchMember Start...");
+		List<Member> SearchMember = null;
+		SearchMember = cd.SearchMember(member);
+		return SearchMember;
 	}
+
+	
 
 
 

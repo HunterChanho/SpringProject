@@ -86,7 +86,7 @@ a:hover{
 </div>
 <div class="login_logout">
 <!--  	<i class="far fa-smile" style="font-size: 16px;"></i>&nbsp;	-->
-		<a href="#">Login </a>&nbsp;|&nbsp; 
+		<a href="login">Login </a>&nbsp;|&nbsp; 
 		<a href="#">Join</a>
 	</div>	
  

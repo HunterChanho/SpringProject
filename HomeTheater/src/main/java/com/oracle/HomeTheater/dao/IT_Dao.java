@@ -14,4 +14,6 @@ public interface IT_Dao {
     List<SeatandTime> findTime(int mo_number);
 
     List<SeatandTime> findSeatData(SeatandTime seatandTime);
+
+    int reservationSave(SeatandTime seatandTime);
 }

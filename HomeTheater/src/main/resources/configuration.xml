@@ -3,8 +3,12 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias alias="Movie" type="com.oracle.HomeTheater.model.Movie"/>
+		<typeAlias alias="Movie"  type="com.oracle.HomeTheater.model.Movie"/>
 		<typeAlias alias="Bbs" type="com.oracle.HomeTheater.model.Bbs"/>
-		<typeAlias alias="Payment" type="com.oracle.HomeTheater.model.Payment"/>
+		<typeAlias alias="Member" type="com.oracle.HomeTheater.model.Member"/>
+		<typeAlias alias="Reservation"  type="com.oracle.HomeTheater.model.Reservation"/>
+		<typeAlias alias="SeatandTime"  type="com.oracle.HomeTheater.model.SeatandTime"/>
+
 	</typeAliases>
+
 </configuration>

@@ -67,4 +67,17 @@ public class IT_DaoImpl implements IT_Dao {
         log.info("findSeatData(Dao) seat size-> " + seatInfo.size());
         return seatInfo;
     }
+
+    @Override
+    public int reservationSave(SeatandTime seatandTime) {
+        int result = 0;
+        log.info("reservationSave(DAO) start");
+        try {
+            result = session.insert("It_ReservationSave",seatandTime);
+        }catch (Exception e) {
+            log.info("resvervation(Dao) Exception -> " + e.getMessage());
+        }
+
+        return result;
+    }
 }
