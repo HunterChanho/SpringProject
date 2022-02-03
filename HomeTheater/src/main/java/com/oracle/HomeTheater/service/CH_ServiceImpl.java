@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.oracle.HomeTheater.dao.CH_Dao;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.Movie;
+import com.oracle.HomeTheater.model.Payment;
 
 @Service
 public class CH_ServiceImpl implements CH_Service {
@@ -28,6 +29,14 @@ public class CH_ServiceImpl implements CH_Service {
 		List<Bbs> SearchBbsList = null;
 		SearchBbsList = cd.SearchBbsList(bbs);
 		return SearchBbsList;
+	}
+
+	@Override
+	public List<Payment> Payments(Payment payment) {
+		System.out.println("CH_ServiceImpl Payments Start...");
+		List<Payment> Payments = null;
+		Payments = cd.Payments(payment);
+		return Payments;
 	}
 
 

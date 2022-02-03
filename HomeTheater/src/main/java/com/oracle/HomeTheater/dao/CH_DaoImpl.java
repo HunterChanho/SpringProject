@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.Movie;
+import com.oracle.HomeTheater.model.Payment;
 
 
 @Repository
@@ -37,6 +38,18 @@ public class CH_DaoImpl implements CH_Dao {
 			System.out.println("CH_DaoImpl SearchBbsList Excetption->"+e.getMessage());
 		}
 		return SearchBbsList;
+	}
+
+	@Override
+	public List<Payment> Payments(Payment payment) {
+		System.out.println("CH_DaoImpl payments Start...");
+		List<Payment> Payments = null;
+		try {
+			Payments = session.selectList("CH_Payments", payment);
+		} catch (Exception e) {
+			System.out.println("CH_DaoImpl Payments Exception->"+e.getMessage());
+		}
+		return Payments;
 	}
 
 

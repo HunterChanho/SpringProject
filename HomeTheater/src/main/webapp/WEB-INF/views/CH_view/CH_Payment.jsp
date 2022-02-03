@@ -34,6 +34,7 @@ function iamport(){
 	    alert(msg);
 	});
 }
+
 </script>
 <title>결제</title>
 <style>
@@ -66,28 +67,47 @@ summary{
 	display: inline-block;
 	width: 200px;
 }
+.menuBar{
+	border: 2px solid black;
+	width: 200px;
+	height: 50px;
+	margin-bottom: 10px;
+	font-size: 15px;
+}
+td{
+	border: 1px solid black;
+}
 </style>
 </head>
 <body>
 <div class="container">
  <div class="content">
   <%@ include file="../header.jsp" %>
+  <form action="Payment">
   <div class="pay">
 	  
 	  <br><br><br>
 	  	<div><b class="stepBar">STEP 1.</b></div>
 	  	<details>
 	  		<summary>할인쿠폰</summary>
+	  		<div class="finalPayment">
+	  			<h4>쿠폰번호를 입력하세요.</h4>
+	  			<input type="text" placeholder="xxxx-xxxx-xxxx"><br>
+	  		</div>
 	  	</details>
 	  	<b class="stepBar">STEP 2.</b>
 	  	<details>
-	  		<summary>관람권/기프티콘</summary>
+	  		<summary>포인트 사용</summary>
+	  		<div class="finalPayment">
+	  			<h4>보유 포인트</h4>
+	  			<input type="text" value="${Payment.pay_point }" readonly>&emsp;원
+	  			<!--  <input type="button" value="조회" onclick="location.href='Payment';">-->
+	  			<h4>사용할 포인트</h4>
+	  			<input type="text">&emsp;원<br>
+	  			<br><label><input type="checkbox">모두사용</label>
+	  		</div>
 	  	</details>
 	  	<b class="stepBar">STEP 3.</b>
-	  	<details>
-	  		<summary>포인트 및 기타결제 수단</summary>
-	  	</details>
-	  	<b class="stepBar">STEP 4.</b>
 	  	<details>
 	  		<summary>최종결제수단</summary>
 	  		<div class="finalPayment">
@@ -102,17 +122,21 @@ summary{
 	  	</div>
 	  	
 	  	<div class="totalPrice">
-	  		<table border="1">
+	  		<table class="menuBar">
+	  			<thead>
 	  			<tr>
 		   			<td>결제하실 금액</td>
 	   			</tr>
+	   			</thead>
+	   			<tbody>
 	   			<tr>
 	   				<td>($결제하실 금액)</td>
 	   			</tr>
+	   			</tbody>
 	  		</table>
-	  		<table border="1">
+	  		<table class="menuBar">
 	  			<tr>
-		   			<td>할인내역</td>
+		   			<td id="sub">할인내역</td>
 	   			</tr>
 	   			<tr>
 	   				<td>총 할인금액</td>
@@ -121,7 +145,7 @@ summary{
 	   				<td>($총 할인금액)</td>
 	   			</tr>
 	  		</table>
-	  		<table border="1">
+	  		<table class="menuBar">
 	  			<tr>
 		   			<td>결제내역</td>
 	   			</tr>
@@ -135,10 +159,11 @@ summary{
 	   				<td>($남은 결제금액)</td>
 	   			</tr>
 	  		</table>
+	  		<input type="button" value="결제하기" onclick="iamport();">
 	  	</div>
 	  	
 	  <%@ include file="../footer.jsp"%> 
-  
+  </form>
  </div>
 </div>
 

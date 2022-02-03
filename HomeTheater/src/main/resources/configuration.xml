@@ -5,5 +5,6 @@
 	<typeAliases>
 		<typeAlias alias="Movie" type="com.oracle.HomeTheater.model.Movie"/>
 		<typeAlias alias="Bbs" type="com.oracle.HomeTheater.model.Bbs"/>
+		<typeAlias alias="Payment" type="com.oracle.HomeTheater.model.Payment"/>
 	</typeAliases>
 </configuration>
