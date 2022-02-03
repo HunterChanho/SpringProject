@@ -8,9 +8,8 @@
 </head>
 <body>
 <%
-	//response.sendRedirect("main");
-	response.sendRedirect("CH_Payment");
-	//response.sendRedirect("reservation");
+	response.sendRedirect("main");
+	//response.sendRedirect("CH_Payment");
 %>
 </body>
 </html>

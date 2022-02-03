@@ -31,7 +31,7 @@ public class It_Controller {
         model.addAttribute("findMovie",findMovie);
         model.addAttribute("findDate",findDate);
         model.addAttribute("findTime",findTime);
-        return "reservation/reservationstart";
+        return "/reservation/reservationstart";
     }
     @PostMapping("/reservationtimedata")
     public String reservationTimeData(SeatandTime seatandTime,Movie movie , Model model){
@@ -47,7 +47,7 @@ public class It_Controller {
         model.addAttribute("seatandTime",seatandTime);
         model.addAttribute("seatInfo",seatInfo);
         model.addAttribute("movie",movie);
-        return"reservation/reservationseat";
+        return"/reservation/reservationseat";
     }
     @PostMapping("/reservationpayment")
     public String reservationPayment(SeatandTime seatandTime){
