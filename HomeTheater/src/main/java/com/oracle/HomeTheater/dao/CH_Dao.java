@@ -11,8 +11,6 @@ public interface CH_Dao {
 
 	List<Movie> SearchMovieList(Movie movie);
 	List<Bbs> SearchBbsList(Bbs bbs);
-	List<Member> SearchMember(Member member);
-
 
 
 }

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
+<script>
+
+</script>
+<title>로그인</title>
 <style>
 .subject{
 	text-align: center;
@@ -24,7 +28,6 @@ b{
 	font-size: 10px;
 }
 </style>
-<title>회원가입</title>
 </head>
 <body>
 <div class="container">
@@ -34,26 +37,29 @@ b{
   		<b>LOGIN</b>		
   	</div>
     <div class="loginForm">
-    	<form action="login">
+    	<form action="login" method="post">
 	    	<br><br>
 	    	<b id="idPw">아이디</b><br>
-	    	<input type="text" name="m_id" placeholder="ID"><br><br>
+	    	<input type="text" id="m_id" name="m_id" placeholder="ID"><br><br>
 	    	<b id="idPw">비밀번호</b><br>
-	    	<input type="password" name="m_password" placeholder="PASSWORD"><br><br>
-	    	<input type="submit" value="로그인">
+	    	<input type="password" id="m_password" name="m_password" placeholder="PASSWORD"><br><br>
+	    	<input type="submit" value="로그인" onclick="chk();">
     	</form>
     </div>
     <div class="subForm">
     	<br>
-    	<a href="joinMember" id="subForm">회원가입 |</a>
+    	<a href="joinMember/new" id="subForm">회원가입 |</a>
     	<a href="#" id="subForm"> 아이디찾기 |</a>
     	<a href="#" id="subForm"> 비밀번호찾기</a>
     </div>
-  
-  
-  
-  
-  
+    
+    <!-- 아이디 비밀번호 오류메시지 출력 -->
+    <c:if test="${not empty loginMessage}">
+    	<p style="color: red">
+    	Warning!<br>
+    	${loginMessage}
+    	<br></p>
+    </c:if>
   
   
   

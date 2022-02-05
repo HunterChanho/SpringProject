@@ -32,15 +32,9 @@ public class CH_ServiceImpl implements CH_Service {
 		return SearchBbsList;
 	}
 
-	@Override
-	public List<Member> SearchMember(Member member) {
-		System.out.println("CH_ServiceImpl SearchMember Start...");
-		List<Member> SearchMember = null;
-		SearchMember = cd.SearchMember(member);
-		return SearchMember;
-	}
 
-	
+
+
 
 
 

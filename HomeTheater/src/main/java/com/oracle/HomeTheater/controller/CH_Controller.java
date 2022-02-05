@@ -2,11 +2,16 @@ package com.oracle.HomeTheater.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.Member;
@@ -44,14 +49,6 @@ public class CH_Controller {
 		return "CH_view/CH_SearchTotalList";
 	}
 	
-	// 로그인
-	@RequestMapping(value = "login")
-	public String login(Member member, Model model) {
-		System.out.println("CH_Contorller login Start...");
-		List<Member> SearchMember = cs.SearchMember(member);
-		model.addAttribute("SearchMember",SearchMember);
-		return "CH_view/CH_Login";
-	}
 	
 	
 	

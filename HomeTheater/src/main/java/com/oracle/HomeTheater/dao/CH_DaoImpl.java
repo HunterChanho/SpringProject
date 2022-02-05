@@ -41,17 +41,9 @@ public class CH_DaoImpl implements CH_Dao {
 		return SearchBbsList;
 	}
 
-	@Override
-	public List<Member> SearchMember(Member member) {
-		System.out.println("CH_DaoImpl SearchMember Start...");
-		List<Member> SearchMember = null;
-		try {
-			SearchMember = session.selectList("CH_SearchMember", member);
-		} catch (Exception e) {
-			System.out.println("CH_DaoImpl SearchMember Exception->"+e.getMessage());
-		}
-		return SearchMember;
-	}
+	
+
+
 
 	
 

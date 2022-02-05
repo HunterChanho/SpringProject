@@ -66,7 +66,10 @@ a:hover{
 	color: black;
 	background-color: #D5D5D5;
 }
-.login_logout{
+.loginJoin{
+	text-align: right;
+}
+.myPaygeLogout{
 	text-align: right;
 }
 .submitBtn{
@@ -84,11 +87,23 @@ a:hover{
 		<img src="img/logo1.png" style="" width="250px" height="100">
 	</a>
 </div>
-<div class="login_logout">
-<!--  	<i class="far fa-smile" style="font-size: 16px;"></i>&nbsp;	-->
-		<a href="login">Login </a>&nbsp;|&nbsp; 
-		<a href="#">Join</a>
-	</div>	
+
+<c:choose>
+ <c:when test="${empty userName}">
+	<div class="loginJoin">
+		<a href="loginForm">Login </a>&nbsp;|&nbsp; 
+		<a href="terms">Join</a>
+	</div>
+</c:when>
+<c:otherwise>
+	<div class="myPaygeLogout">
+		<i class="fas fa-user" style="font-size: 15px;"></i>
+		<a href="myPage">[${userName}님]</a>
+		<a href="logout">Logout</a>
+	</div>
+</c:otherwise>	
+</c:choose>
+
  
 <nav class="top_menu">
 	<form name="searchInfo" action="SearchTotalList" method="get">

@@ -2,9 +2,12 @@ package com.oracle.HomeTheater.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.oracle.HomeTheater.dao.CH_MemberJpaRepository;
 import com.oracle.HomeTheater.domain.MemberJpa;
+import com.oracle.HomeTheater.model.Member;
+
 
 @Transactional
 @Service
@@ -15,12 +18,18 @@ public class CH_MemberJpaService {
 		this.memberJpaRepository = memberJpaRepository;
 	}
 
-	// 회원가입
-	public String join(MemberJpa member) {
-		System.out.println("CH_MemberJpaService join member.getM_id()->"+member.getM_id());
+	public void joinUser(MemberJpa member) {
+		member.setRole("User");
 		memberJpaRepository.save(member);
-		return member.getM_id();
-		
 	}
+
+	public MemberJpa loginUser(String m_id, String m_password) {
+		MemberJpa memberVO = memberJpaRepository.selectUserInfo(m_id,m_password);
+		return memberVO;
+	}
+
+
+	
+
 	
 }

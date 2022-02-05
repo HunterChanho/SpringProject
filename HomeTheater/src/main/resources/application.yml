@@ -24,7 +24,7 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
- 
+    
   # gmail Transfer 
   mail:
     host: smtp.gmail.com
