@@ -91,8 +91,8 @@ a:hover{
 <c:choose>
  <c:when test="${empty userName}">
 	<div class="loginJoin">
-		<a href="loginForm">Login </a>&nbsp;|&nbsp; 
-		<a href="terms">Join</a>
+		<b><a href="loginForm">Login</a></b>&nbsp;|&nbsp;
+		<b><a href="terms">Join</a></b>
 	</div>
 </c:when>
 <c:otherwise>
@@ -110,8 +110,8 @@ a:hover{
 	<ul>
 		<li><a class="menuLink" href="#">영화</a></li>
 		<li><a class="menuLink" href="#">추천영화</a></li>
-		<li><a class="menuLink" href="#">공지사항</a></li>
-		<li><a class="menuLink" href="#">고객센터</a></li>	
+		<li><a class="menuLink" href="#">공지사항</a></li>	
+		<li><a class="menuLink" href="myPage">마이페이지</a></li>
 		<li><i class="fas fa-search" style="font-size: 15px;"></i>&nbsp;
 		<input type="text" name="mo_title" id="mo_title" style="width: 100px;" placeholder="통합 검색" 
 			   required oninvalid="this.setCustomValidity('검색어를 입력해주세요.')"

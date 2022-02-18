@@ -14,5 +14,4 @@ public class Member{
 	private String m_phonenumber;
 	private String m_address;
 	private String m_email;
-	private String m_AuhKey;
 }

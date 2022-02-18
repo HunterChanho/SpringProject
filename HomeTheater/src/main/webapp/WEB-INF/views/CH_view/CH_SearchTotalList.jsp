@@ -5,8 +5,7 @@
 <title>통합검색</title>
 <style>
 table{
-	margin-left:auto; 
-    margin-right:auto;
+	text-align: left;
     border-spacing: 100px;
  	border-collapse: separate;
  	width: 600px;
@@ -19,9 +18,19 @@ table{
 .bbsList td{
 	font-size: 15px;
 	text-align: center;
+	width: 150px;
 }
-th{
+.bbsList th{
 	font-size: 15px;
+	text-align: center;
+}
+.subject{
+	text-align: left;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+#header{
+	font-size: 25px;
 }
 </style>
 </head>
@@ -33,14 +42,18 @@ th{
   <div class="movieList">
  	<%@ include file="../header.jsp" %>
 		<c:if test="${fn:length(SearchMovieList)==0}">
-			<h1>-영화정보-</h1>
+			<div class="subject">
+				<b id="header">영화정보</b>
+			</div>
 			<hr>
 			<h2>**** 입력하신 영화 정보가 없습니다. ****</h2>
 			<hr>
 		</c:if>
 	
 		<c:if test="${fn:length(SearchMovieList)!=0 }">
-			<h1>-영화정보-</h1>
+			<div class="subject">
+				<b id="header">영화정보</b>
+			</div>
 			<hr>
 			<c:forEach var="movie" items="${SearchMovieList }">
 				<table>
@@ -51,7 +64,7 @@ th{
 							배우 : ${movie.mo_actor}<br>
 							장르 : ${movie.mo_genre}<br>
 							연령듭급 : ${movie.mo_age}<br>
-							상영시간 : ${movie.mo_playTime} 분<br>
+							상영시간 : ${movie.mo_playTime} 시간<br>
 							개봉날짜 : ${movie.mo_openDate}<br>
 						</td>
 					</tr>				
@@ -65,12 +78,16 @@ th{
  <div class="content">
   <div class="bbsList">
  	<c:if test="${fn:length(SearchBbsList)==0}">
-		<h1>-게시판 정보-</h1>
+		<div class="subject">
+			<b id="header">게시판정보</b>
+		</div>
 		<hr>
 		<h2>**** 입력하신 게시물 정보가 없습니다. ****</h2>
 	</c:if>
  	<c:if test="${fn:length(SearchBbsList)!=0 }">
-			<h1>-게시판 정보-</h1>
+			<div class="subject">
+				<b id="header">게시판정보</b>
+			</div>
 			<hr>
 				<table>
 					<tr>

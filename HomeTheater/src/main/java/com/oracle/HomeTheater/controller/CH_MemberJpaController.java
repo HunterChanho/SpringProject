@@ -94,8 +94,12 @@ public class CH_MemberJpaController {
 
 	// 마이페이지 폼
 	@RequestMapping(value = "myPage")
-	public String myPage() {
+	public String myPage(HttpSession session) {
 		System.out.println("CH_MemberJpaController myPage Start...");
+		String m_id = (String)session.getAttribute("sessionId");
+		if(m_id == null) {
+			return "CH_view/CH_Login";
+		}
 		return "CH_view/CH_MyPage";
 	}
 	

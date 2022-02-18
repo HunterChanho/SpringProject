@@ -49,18 +49,17 @@ function checkForm(){
 <title>회원정보변경</title>
 <style>
 .subject{
-	text-align: center;
+	text-align: left;
 	margin-top: 50px;
 	margin-bottom: 30px;
-	font-size: 25px;
 }
 #header{
 	font-size: 25px;
 }
 #delete{
-	color: blue;
-	font-size: 12px;
+	color: black;
 	text-decoration: underline;
+	font-size: 13px;
 }
 .delete{
 	text-align: right;
@@ -94,6 +93,15 @@ function checkForm(){
 #modalInput{
 	border: 1px solid black;
 }
+.btn{
+	border: 1px solid white;
+	width: 50px; 
+	height: 25px;
+}
+.col-sm-2{
+	text-align: left;
+	display: inline-block;
+}
 </style>
 </head>
 <body>
@@ -101,23 +109,23 @@ function checkForm(){
  <div class="content">
  <%@ include file="../header.jsp" %>
  <div class="subject">
- <b id="header">회원정보변경</b>
- </div>
+ 	<b id="header">회원정보변경</b>
+ </div><hr>
  <div class="delete">
- 	<a id="delete" href="memberDelete">회원탈퇴</a>
+ 	<a href="memberDelete"><b id="delete">회원탈퇴</b></a>
  </div>
  <form action="memberUpdate" name="memberUpdate" method="post">
  	<div class="form-grou row">
- 		<label class="col-sm-2">아이디:</label>
+ 		<label class="col-sm-2"><b>아이디:</b></label>
  		<div class="col-sm-3">
-	 		<input type="text" id="id" name="m_id" value="${member.m_id}" readonly> <br>
+	 		<input type="text" id="id" name="m_id" value="${member.m_id}" readonly><br><br>
  		</div>
 	 </div>
 	 		
 	 <div class="form-grou row">
- 		<label class="col-sm-2">비밀번호:</label>
+ 		<label class="col-sm-2"><b>비밀번호:</b></label>
  		<div class="col-sm-3">
-	 		<input type="password" id="password" name="m_password" value="${member.m_password }" readonly>
+	 		<input type="password" id="password" name="m_password" value="${member.m_password }" readonly><br><br>
  		</div>
  		<div class="col-sm-1">
  			<input type="button" id="popup_open_btn" value="비밀번호변경" >
@@ -125,35 +133,35 @@ function checkForm(){
 	 </div>
 	 		
 	 <div class="form-grou row">
-	 	<label class="col-sm-2">이름:</label>
+	 	<label class="col-sm-2"><b>이름:</b></label>
  		<div class="col-sm-3">
-	 		<input type="text" id="m_name" name="m_name" value="${member.m_name}" required> <br>
+	 		<input type="text" id="m_name" name="m_name" value="${member.m_name}" required><br><br>
  		</div>
 	 </div>
 	 		
 	 <div class="form-grou row">
- 		<label class="col-sm-2">전화번호:</label>
+ 		<label class="col-sm-2"><b>전화번호:</b></label>
  		<div class="col-sm-3">
-			<input type="text" id="phone" name="m_phonenumber" value="${member.m_phonenumber}" readonly> <br>
+			<input type="text" id="phone" name="m_phonenumber" value="${member.m_phonenumber}" readonly><br><br>
  		</div>
 	 </div>
 	 		
 	 <div class="form-grou row">
- 		<label class="col-sm-2">주소:</label>
+ 		<label class="col-sm-2"><b>주소:</b></label>
  		<div class="col-sm-3">
-			<input type="text" name="m_address" value="${member.m_address }" required> <br>
+			<input type="text" name="m_address" value="${member.m_address }" required><br><br>
  		</div>
 	 </div>
 	 		
 	 <div class="form-grou row">
- 	 	<label class="col-sm-2">이메일:</label>
+ 	 	<label class="col-sm-2"><b>이메일:</b></label>
  		<div class="col-sm-3">
-			<input type="text" id="m_email" name="m_email" value="${member.m_email }" required> <br>
+			<input type="text" id="m_email" name="m_email" value="${member.m_email }" required><br><br><br><br>
  		</div>
 	 </div>
-	 <input type="submit" value="확인 " onclick="checkForm()">
-	 <input type="button" value="취소" onclick="history.back();">
- 	 <br><br><br><br>
+	 <input class="btn" type="submit" value="확인 " style="font-weight: bold;" onclick="checkForm()">
+	 <input class="btn" type="button" value="취소" style="font-weight: bold;" onclick="history.back();">
+ 	 <br><br>
  </form>
  <!-- 모달창 -->
  <div id="my_modal">

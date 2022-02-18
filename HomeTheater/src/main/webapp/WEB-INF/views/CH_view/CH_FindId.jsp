@@ -76,6 +76,15 @@ function checkNum(){
 </script>
 <title>아이디 찾기</title>
 <style>
+.subject{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	font-size: 25px;
+}
+#subject{
+	font-size: 25px;
+}
 .emailFind{
 	color: black;
 	display: none;
@@ -84,6 +93,24 @@ function checkNum(){
 	color: red;
 	display: none;
 }
+.findIdForm{
+	border: 2px solid black;
+	width: 300px;
+	height: 260px;
+	display: inline-block;
+	text-align: center;
+}
+#inputTag{
+	font-size: 15px;
+}
+#sendEmail{
+	width: 152px;
+}
+.btn{
+	border: 1px solid white;
+	width: 50px; 
+	height: 25px;
+}
 </style>
 </head>
 <body>
@@ -91,27 +118,25 @@ function checkNum(){
  <div class="content">
  	<%@ include file="../header.jsp" %>
  		<div class="subject">
- 			<b>FIND ID</b>
- 			<h6>가입시 기입한 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.</h6>
+ 			<b id="subject">FIND ID</b><br>
+ 			<h6>(가입시 기입한 이메일 주소와 입력한 이메일 주소가 같아야, 인증번호를 받을 수 있습니다.)</h6>
  		</div>
- 		<div>
+ 		<div class="findIdForm">
  			<form action="forward:/checkNum" name="emailCert">
  				<br><br>
- 				<b>핸드폰 번호</b><br>
- 				<input type="text" id="m_phonenumber" placeholder="ex) 010-1234-5678" required><br>
- 				<b>이메일 주소</b><br>
- 				<input type="text" id="m_email" onchange="checkEmail()" required><br>
+ 				<b id="inputTag">핸드폰 번호</b><br>
+ 				<input type="text" id="m_phonenumber" placeholder="ex) 010-1234-5678" required><br><br>
+ 				<b id="inputTag">이메일 주소</b><br>
+ 				<input type="text" id="m_email" onchange="checkEmail()" required>
  				<b class="emailFind">가입하신 이메일과 같습니다. 발급버튼을 눌러주세요.<br>(시간이 조금 걸릴수도 있습니다. 잠시만 기다려주세요.)</b>
 		    	<b class="emailNotFind">가입하신 이메일과 다릅니다. 다시 입력해주세요.</b><br>
  				<input type="button" id="sendEmail" value="인증번호 발급"><br>
- 				<input type="text" id="inputNum" placeholder="인증번호 6자리를 입력해주세요." required><br>
+ 				<input type="text" id="inputNum" placeholder="인증번호 6자리를 입력해주세요." required><br><br>
  				<input type="hidden" id="num" value="null">
- 				<input type="submit" value="확인" onclick="checkNum()">
-		    	<input type="button" value="취소" onclick="location.href='loginForm'">
+ 				<input type="submit" class="btn" value="확인" style="font-weight: bold;" onclick="checkNum()">
+		    	<input type="button" class="btn" value="취소" style="font-weight: bold;" onclick="location.href='loginForm'">
  			</form>
  		</div>
- 	
- 	
  	<%@ include file="../footer.jsp"%>
  </div>
 </div>

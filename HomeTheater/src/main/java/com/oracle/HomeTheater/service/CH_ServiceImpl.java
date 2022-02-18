@@ -11,6 +11,7 @@ import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Movie;
+import com.oracle.HomeTheater.model.Reservation;
 
 
 
@@ -118,12 +119,30 @@ public class CH_ServiceImpl implements CH_Service {
 	}
 
 	@Override
-	public List<ChoiceMovie> findInterstMovie(ChoiceMovie choice) {
-		System.out.println("CH_ServiceImpl findInterstMovie Start...");
-		List<ChoiceMovie> findInterstMovie = null;
-		findInterstMovie = cd.findInterstMovie(choice);
-		return findInterstMovie;
+	public List<ChoiceMovie> getMoNumList(ChoiceMovie choice) {
+		System.out.println("CH_ServiceImpl getMoNumList Start...");
+		List<ChoiceMovie> GetMoNumList = null;
+		GetMoNumList = cd.getMoNumList(choice);
+		return GetMoNumList;
 	}
+
+	@Override
+	public List<Movie> InterestMovieList(Movie movie) {
+		System.out.println("CH_ServiceImpl InterestMovieList Start...");
+		List<Movie> InterestMovieList = null;
+		InterestMovieList = cd.InterestMovieList(movie);
+		return InterestMovieList;
+	}
+
+	@Override
+	public List<Reservation> checkReservationInfo(Reservation reservation) {
+		System.out.println("CH_ServiceImpl checkReservationInfo Start...");
+		List<Reservation> checkReservationInfo = null;
+		checkReservationInfo = cd.checkReservationInfo(reservation);
+		return checkReservationInfo;
+	}
+
+	
 	
 	
 
