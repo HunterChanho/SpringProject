@@ -18,7 +18,7 @@
 	 	<form name="newMember" action="<%=context%>/joinMember/save" method="post">
 	 		<br>
 	 		<div class="form-grou row">
-		 		<label class="col-sm-2"><b>아이디:</b></label>
+		 		<label class="col-sm-2"><b>아이디</b></label>
 		 		<div class="col-sm-5">
 			 		<input type="text" id="m_id" name="m_id" placeholder="id" required onchange="checkId()"><br><br>
 		 		</div>
@@ -26,7 +26,7 @@
 		 		<span class="id_available">*영문 또는 영문,숫자 조합 (4~20자)</span>
 	 		</div>
 	 		<div class="form-grou row">
-		 		<label class="col-sm-2"><b>비밀번호:</b></label>
+		 		<label class="col-sm-2"><b>비밀번호</b></label>
 		 		<div class="col-sm-5">
 			 		<input type="password" id="m_password" name="m_password" placeholder="password" required><br><br>
 		 		</div>
@@ -34,21 +34,21 @@
 	 		</div>
 	 		
 	 		<div class="form-grou row">
-		 		<label class="col-sm-2"><b>비밀번호 확인:</b></label>
+		 		<label class="col-sm-2"><b>비밀번호 확인</b></label>
 		 		<div class="col-sm-5">
 			 		<input type="password" name="m_passwordConfirm" placeholder="passwordConfirm" required><br><br>
 		 		</div>
 	 		</div>
 	 		
 	 		<div class="form-grou row">
-		 		<label class="col-sm-2"><b>이름:</b></label>
+		 		<label class="col-sm-2"><b>이름</b></label>
 		 		<div class="col-sm-5">
 			 		<input type="text" id="m_name" name="m_name" placeholder="name" required><br><br>
 		 		</div>
 	 		</div>
 	 		
 	 		<div class="form-grou row">
-		 		<label class="col-sm-2"><b>전화번호:</b></label>
+		 		<label class="col-sm-2"><b>전화번호</b></label>
 		 		<div class="col-sm-5">
 					<select id="phone1" name="phone1" style="height: 20px;" required>
 		              <option value="010" selected>010</option>
@@ -96,7 +96,7 @@
 			    </div>
 			</div>
 	 		<div class="form-grou row">
-		 		<label class="col-sm-2"><b>이메일:</b></label>
+		 		<label class="col-sm-2"><b>이메일</b></label>
 		 		<div class="col-sm-5">
 			 		<input type="text" id="mail1" name="mail1" maxlength="50" required>@
 	                <input type="text" id="mail2" name="mail2" maxlength="50" required>

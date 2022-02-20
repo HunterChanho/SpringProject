@@ -202,6 +202,42 @@ public class CH_Controller {
 		return "CH_view/CH_ReservationInfo";
 	}
 	
+	// 관리자 회원리스트
+	@RequestMapping(value = "memberList")
+	public String memberList(Member member, Model model) {
+		System.out.println("CH_Contorller memberList Start...");
+		List<Member> memberList = cs.memberList(member);
+		model.addAttribute("memberList",memberList);
+		return "CH_view/CH_MemberManagement";
+	}
+	
+	// 관리자 회원업데이트
+	@PostMapping(value = "adminUpdateMember")
+	@ResponseBody
+	public int adminUpdateMember(Member member,Model model) {
+		System.out.println("CH_Contorller memberUpdate Start...");
+		System.out.println("before="+member);
+		int update = cs.adminUpdateMember(member);
+		model.addAttribute("update",update);
+		return update;
+	}
+	
+	// 관리자 회원삭제
+	@GetMapping(value = "adminDeleteMember")
+	@ResponseBody
+	public int adminDeleteMember(@RequestParam("m_id") String m_id) {
+		int delete = cs.memberDelete(m_id);
+		return delete;
+	}
+	
+	// 관리자 예약리스트
+	@RequestMapping(value = "reservationList")
+	public String reservationList(Reservation reservation, Model model) {
+		System.out.println("CH_Contorller reservationList Start...");
+		List<Reservation> reservationList = cs.reservationList(reservation);
+		model.addAttribute("reservationList",reservationList);
+		return "CH_view/CH_ReservationList";
+	}
 	
 	
 }

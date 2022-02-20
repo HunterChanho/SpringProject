@@ -151,6 +151,31 @@ public class CH_ServiceImpl implements CH_Service {
 		return searchSeatInfo;
 	}
 
+	@Override
+	public List<Member> memberList(Member member) {
+		System.out.println("CH_ServiceImpl memberList Start...");
+		List<Member> memberList = null;
+		memberList = cd.memberList(member);
+		return memberList;
+	}
+
+	@Override
+	public int adminUpdateMember(Member member) {
+		int update = 0;
+		System.out.println("CH_ServiceImpl adminUpdateMember Start...");
+		update = cd.adminUpdateMember(member);
+		return update;
+	}
+
+	@Override
+	public List<Reservation> reservationList(Reservation reservation) {
+		System.out.println("CH_ServiceImpl reservationList Start...");
+		List<Reservation> reservationList = null;
+		reservationList = cd.reservationList(reservation);
+		return reservationList;
+	}
+
+
 	
 	
 	

@@ -223,6 +223,42 @@ public class CH_DaoImpl implements CH_Dao {
 		return searchSeatInfo;
 	}
 
+	@Override
+	public List<Member> memberList(Member member) {
+		System.out.println("CH_DaoImpl memberList Start...");
+		List<Member> memberList = null;
+		try {
+			memberList = session.selectList("CH_MemberList", member);
+		} catch (Exception e) {
+			System.out.println("CH_DaoImpl memberList Excetption->"+e.getMessage());
+		}
+		return memberList;
+	}
+
+	@Override
+	public int adminUpdateMember(Member member) {
+		int update = 0;
+		System.out.println("CH_DaoImpl adminUpdateMember Start...");
+		try {
+			update = session.update("CH_AdminUpdateMember", member);
+		} catch (Exception e) {
+			System.out.println("CH_DaoImpl adminUpdateMember Excetption->"+e.getMessage());
+		}
+		return update;
+	}
+
+	@Override
+	public List<Reservation> reservationList(Reservation reservation) {
+		System.out.println("CH_DaoImpl reservationList Start...");
+		List<Reservation> reservationList = null;
+		try {
+			reservationList = session.selectList("CH_ReservationList", reservation);
+		} catch (Exception e) {
+			System.out.println("CH_DaoImpl reservationList Excetption->"+e.getMessage());
+		}
+		return reservationList;
+	}
+
 
 
 

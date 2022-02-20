@@ -53,6 +53,15 @@
 	<select id="CH_SearchSeatInfo" parameterType="SeatandTime" resultType="SeatandTime">
 		 select r.re_number, s.se_date, s.se_number, s.se_time, r.mo_number from seatandtime s, reservation r where r.mo_number = s.mo_number(+) and m_id = #{m_id}
 	</select>
+	<select id="CH_MemberList" parameterType="Member" resultType="Member">
+		select * from member where m_id not in('admin')
+	</select>
+	<update id="CH_AdminUpdateMember" parameterType="Member">
+		update member set m_id = #{m_id}, m_name = #{m_name}, m_phonenumber = #{m_phonenumber}, m_address = #{m_address}, m_email = #{m_email}, m_point = #{m_point} where m_id = #{m_id}
+	</update>
+	<select id="CH_ReservationList" parameterType="Reservation" resultType="Reservation">
+		select * from reservation order by m_id
+	</select>
 </mapper>
 <!-- 서브쿼리를 이용해서 조회하려했는데 실패함, 나중에 해봐야겠다.
 	<select id="CH_FindInterstMovie" parameterType="ChoiceMovie" resultType="ChoiceMovie">

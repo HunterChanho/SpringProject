@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.model.MovieLike;
@@ -68,7 +69,11 @@ public class SE_Controller {
 		map.put("m_id", m_id);
 		Movie movie = ses.movieDetail(mo_number);
 		Member member = ses.findMember(m_id);
+		
+		//화면에서 체크하며 추천이나 관심영화 이미 눌러져 있으면 화면 버튼 변경하기 위해
+		int choiceCheck = ses.CheckChoiceMovie(map);
 		int check = ses.likeCheck(map);
+		model.addAttribute("choiceCheck", choiceCheck);
 		System.out.println("check-> : " + check);
 		model.addAttribute("check", check);
 
@@ -98,6 +103,8 @@ public class SE_Controller {
 		map.put("mo_number", param.get("mo_number"));
 		map.put("m_id", param.get("m_id"));
 		int check = ses.likeCheck(map); // movieLike 테이블에 해당 회원 아이디와 영화 번호를 가진 칼럼이 있는지 확인 있으면 1 없으면 0
+		
+		
 		int delState;
 		int insState;
 		if (check == 0) {
@@ -162,7 +169,7 @@ public class SE_Controller {
 		}
 
 	}
-	
+	//관리자 영화 수정 폼
 	@GetMapping(value="adminMovieUpdateForm")
 	public String updateForm(int mo_number,Model model) {
 		System.out.println("SE_Contorller Start adminMovieUpdateForm..." );
@@ -172,6 +179,7 @@ public class SE_Controller {
 		return "SE_views/SE_adminMovieUpdateForm";
 	}
 	
+	//관리자 영화 수정 처리
 	@PostMapping(value="adminMovieUpdate")
 	public String adminMovieUpdate(Movie movie, Model model) {
 		int uptCnt = ses.adminMovieUpdate(movie);
@@ -181,10 +189,37 @@ public class SE_Controller {
 		   
 	}
 	
+	//관리자 영화 삭제
 	@RequestMapping(value="adminMovieDelete")
 	public String adminMovieDelete(int mo_number, Model model) {
 		System.out.println("SE_Contorller Start adminMovieDelete..." );
 		int result = ses.adminMovieDelete(mo_number);
 		return "redirect:movieList";
+	}
+	
+	//관심영화 등록
+	@RequestMapping(value="/choiceMovie",method = RequestMethod.POST)
+	@ResponseBody
+	public int choiceMovie(@RequestParam Map<String, Object> param) {
+		System.out.println("SE_Contorller Start choiceMovie..." );
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("mo_number", param.get("mo_number"));
+		map.put("m_id", param.get("m_id"));
+		int check = ses.CheckChoiceMovie(map); // chocieMovie 테이블에 해당 회원 아이디와 영화 번호를 가진 칼럼이 있는지 확인 있으면 1 없으면 0
+		System.out.println("영화 존재 체크 : "+ check);
+		
+		int state;
+		int insState;
+		if (check == 0) {
+			// check가 0이면 처음 
+			insState = ses.insertChoiceMovie(map); // like테이블 삽입
+		} else if (check == 1) {
+
+			state = ses.updateChoiceMovieCancle(map); // like테이블 삭제
+			
+
+		}
+		return check;
 	}
 }

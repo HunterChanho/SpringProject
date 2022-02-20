@@ -1,14 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html><html><head><meta charset="UTF-8">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="css/SE_movieAdmin.css">
+<link rel="stylesheet" href="/css/SE_movieAdmin.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<title>리스트</title>
-<style></style>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>영화 목록</title>
+<style>
+.list_image{
+	border: 1px solid black;
+	width: 200px;
+	height: 250px;
+}
+</style>
 </head>
 <body>
 	<div class="container">
@@ -16,18 +25,18 @@
 		<h1>______</h1>
 		<h2 class="main_title">영화</h2>
 		<br>
-		<c:if test="${sessionScope.sessionId == 'admin'}">
+		<%-- <c:if test="${sessionScope.sessionId == 'admin'}">
 			<div class="admin_button">
-				<button type="button" class="movie_button" id="movieAdd" href =location.href='adminMovieAddForm'>
-					영화 등록</a></button>
+				<button type="button" class="movie_button" id="movieAdd"
+					onclick="location.href='adminMovieAddForm'">
+					영화 등록
+				</button>
 			</div>
-	</c:if> 
-				
-
+		</c:if> --%>
 
 		<ul>
 			<c:forEach var="movie" items="${listMovie }">
-				<li><img class="list_image" src="${movie.mo_fileName }" alt="">
+				<li><img class="list_image" src="/${movie.mo_fileName }" alt="">
 					<br> <a href="movieDetail?mo_number=${movie.mo_number }">
 						영화정보 </a>|<a href="#"> 상영시간 </a>|<a
 					href="/reservation?mo_number=${movie.mo_number }"> 예매하기 </a></li>

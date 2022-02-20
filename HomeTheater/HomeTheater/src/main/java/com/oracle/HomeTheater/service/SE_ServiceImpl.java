@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oracle.HomeTheater.dao.SE_Dao;
+import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.model.MovieLike;
@@ -113,6 +114,35 @@ public class SE_ServiceImpl implements SE_Service {
 		int result = 0;
 		result = sd.adminMovieDelete(mo_number);
 		return result;
+	}
+
+	@Override
+	public ChoiceMovie findChoiceMovie(Map<String, Object> map) {
+		System.out.println("SE_ServiceImpl findChoiceMovie Start..." );
+		ChoiceMovie choiceMovie= sd.findChoiceMovie(map);
+		System.out.println(map.get("m_id"));
+		return choiceMovie;
+	}
+
+	@Override
+	public int CheckChoiceMovie(Map<String, Object> map) {
+		System.out.println("SE_ServiceImpl CheckChoiceMovie Start..." );
+		int check= sd.CheckChoiceMovie(map);
+		return check;
+	}
+
+	@Override
+	public int insertChoiceMovie(Map<String, Object> map) {
+		System.out.println("SE_ServiceImpl insertChoiceMovie Start..." );
+		int resulit= sd.insertChoiceMovie(map);
+		return resulit;
+	}
+
+	@Override
+	public int updateChoiceMovieCancle(Map<String, Object> map) {
+		System.out.println("SE_ServiceImpl updateChoiceMovieCancle Start..." );
+		int resulit= sd.updateChoiceMovieCancle(map);
+		return resulit;
 	}
 
 	

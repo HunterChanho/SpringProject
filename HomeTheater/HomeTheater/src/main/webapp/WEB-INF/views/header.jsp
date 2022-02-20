@@ -115,7 +115,12 @@ a:hover{
 		<li><a class="menuLink" href="<%=context%>/movieList">영화</a></li>
 		<li><a class="menuLink" href="<%=context%>/movieRecommendList">추천영화</a></li>
 		<li><a class="menuLink" href="<%=context%>/YM_views/mainNotice">공지사항</a></li>	
-		<li><a class="menuLink" href="<%=context%>/myPage">마이페이지</a></li>
+		<c:if test="${sessionScope.sessionId != 'admin'}">
+			<li><a class="menuLink" href="<%=context%>/myPage">마이페이지</a></li>
+		</c:if>
+		<c:if test="${sessionScope.sessionId == 'admin'}">
+			<li><a class="menuLink" href="<%=context%>/myPage">관리페이지</a></li>
+		</c:if>
 		<li><i class="fas fa-search" style="font-size: 15px;"></i>&nbsp;
 		<input type="text" name="mo_title" id="mo_title" style="width: 100px;" placeholder="통합 검색" 
 			   required oninvalid="this.setCustomValidity('검색어를 입력해주세요.')"

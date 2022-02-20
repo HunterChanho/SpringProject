@@ -29,6 +29,9 @@ public interface CH_Service {
 	List<Movie> InterestMovieList(Movie movie);
 	List<Reservation> checkReservationInfo(Reservation reservation);
 	List<SeatandTime> searchSeatInfo(SeatandTime seatTime);
+	List<Member> memberList(Member member);
+	int adminUpdateMember(Member member);
+	List<Reservation> reservationList(Reservation reservation);
 
 
 }

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.model.MovieLike;
@@ -167,10 +168,64 @@ public class SE_DaoImpl implements SE_Dao {
 		System.out.println("SE_DaoImpl adminMovieDelete start..");
 		int result = 0;
 		try {
-			result  = session.update("SE_delMovie",mo_number);
+			result  = session.delete("SE_delMovie",mo_number);
 		} catch (Exception e) {
 			System.out.println("SE_DaoImpl adminMovieDelete Exception->"+e.getMessage());
 		}
+		return result;
+	}
+
+
+	@Override
+	public ChoiceMovie findChoiceMovie(Map<String, Object> map) {
+		ChoiceMovie choiceMovie = null;
+		System.out.println("SE_DaoImpl findChoiceMovie Start ...");
+		try {
+			choiceMovie = session.selectOne("SE_selChoiceMovie", map);
+			System.out.println("SE_DaoImpl findChoiceMovie getEname->" + choiceMovie.getM_id());
+		} catch (Exception e) {
+			System.out.println("SE_DaoImpl findChoiceMovie Exception->" + e.getMessage());
+		}
+
+		return choiceMovie;
+	}
+
+	@Override
+	public int CheckChoiceMovie(Map<String, Object> map) {
+		int result = 0;
+		System.out.println("SE_DaoImpl CheckChoiceMovie Start ...");
+		try {
+			result = session.selectOne("SE_selCheckChoiceMovie", map);
+		} catch (Exception e) {
+			System.out.println("SE_DaoImpl CheckChoiceMovie Exception->" + e.getMessage());
+		}
+
+		return result;
+	}
+
+	@Override
+	public int insertChoiceMovie(Map<String, Object> map) {
+		int result = 0;
+		System.out.println("SE_DaoImpl insertChoiceMovie Start ...");
+		try {
+			result = session.insert("SE_insChoiceMovie", map);
+		} catch (Exception e) {
+			System.out.println("SE_DaoImpl insertChoiceMovie Exception->" + e.getMessage());
+		}
+
+		return result;
+	}
+
+	@Override
+	public int updateChoiceMovieCancle(Map<String, Object> map) {
+		int result = 0;
+		System.out.println("SE_DaoImpl updateChoiceMovieCancle Start ...");
+		try {
+			result = session.update("SE_updChoiceMovie", map);
+		} catch (Exception e) {
+			System.out.println("SE_DaoImpl updateChoiceMovieCancle Exception->" + e.getMessage());
+		}
+
 		return result;
 	}
 }

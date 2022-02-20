@@ -4,7 +4,7 @@
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
-b{
+.subject b{
 	font-size: 25px;
 }
 #icon{
@@ -27,6 +27,21 @@ b{
 }
 #explain3{
 	margin-left: 120px; 
+	margin-right: 120px;
+	font-size: 15px;
+}
+#explain4{
+	margin-left: 110px; 
+	margin-right: 120px;
+	font-size: 15px;
+}
+#explain5{
+	margin-left: 120px; 
+	margin-right: 120px;
+	font-size: 15px;
+}
+#explain6{
+	margin-left: 130px; 
 	margin-right: 120px;
 	font-size: 15px;
 }
