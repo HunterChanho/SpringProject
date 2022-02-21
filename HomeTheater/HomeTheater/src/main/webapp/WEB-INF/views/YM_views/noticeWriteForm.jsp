@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 글작성 페이지야~</title>
+<title>공지사항 글 작성 페이지야~</title>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <style type="text/css">
 /* MainContent Box ------------------------------------------ */

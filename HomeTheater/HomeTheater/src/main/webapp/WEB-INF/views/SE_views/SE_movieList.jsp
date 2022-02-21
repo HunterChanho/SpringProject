@@ -23,7 +23,7 @@
 	<div class="container">
 		<%@ include file="../header.jsp"%>
 		<h1>______</h1>
-		<h2 class="main_title">영화</h2>
+		<h2 class="main_title">영화수정/삭제</h2>
 		<br>
 		<%-- <c:if test="${sessionScope.sessionId == 'admin'}">
 			<div class="admin_button">
@@ -38,8 +38,7 @@
 			<c:forEach var="movie" items="${listMovie }">
 				<li><img class="list_image" src="/${movie.mo_fileName }" alt="">
 					<br> <a href="movieDetail?mo_number=${movie.mo_number }">
-						영화정보 </a>|<a href="#"> 상영시간 </a>|<a
-					href="/reservation?mo_number=${movie.mo_number }"> 예매하기 </a></li>
+						영화수정/삭제 </a></li>
 			</c:forEach>
 		</ul>
 

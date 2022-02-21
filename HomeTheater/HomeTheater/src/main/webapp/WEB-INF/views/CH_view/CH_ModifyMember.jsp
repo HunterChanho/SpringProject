@@ -3,6 +3,16 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <link rel="stylesheet" href="css/CH_css/CH_ModifyMember.css">
 <title>회원정보변경</title>
+<script>
+function memberDelete(){
+	if(confirm("회원탈퇴 하시겠습니까?")){
+		alert("탈퇴되었습니다.");
+		location.href="memberDelete";
+	}else{
+		alert("취소되었습니다.");
+	}
+}
+</script>
 </head>
 <body>
 <div class="container">
@@ -12,7 +22,7 @@
  	<b id="header">회원정보변경</b>
  </div><hr>
  <div class="delete">
- 	<a href="memberDelete"><b id="delete">회원탈퇴</b></a>
+ 	<input type="button" id="delete" value="회원탈퇴" onclick="memberDelete()">
  </div>
  <form action="memberUpdate" name="memberUpdate" method="post">
  	<div class="form-grou row">

@@ -23,7 +23,7 @@
 			 		<input type="text" id="m_id" name="m_id" placeholder="id" required onchange="checkId()"><br><br>
 		 		</div>
 		 		<span class="id_already">*이미 존재하는 아이디입니다.</span>
-		 		<span class="id_available">*영문 또는 영문,숫자 조합 (4~20자)</span>
+		 		<span class="id_available">*영문 소문자 또는 영문 소문자,숫자 조합 (4~20자)</span>
 	 		</div>
 	 		<div class="form-grou row">
 		 		<label class="col-sm-2"><b>비밀번호</b></label>

@@ -62,6 +62,9 @@
 	<select id="CH_ReservationList" parameterType="Reservation" resultType="Reservation">
 		select * from reservation order by m_id
 	</select>
+	<select id="CH_AdminMovieList" parameterType="Movie" resultType="Movie">
+		select * from movie
+	</select>
 </mapper>
 <!-- 서브쿼리를 이용해서 조회하려했는데 실패함, 나중에 해봐야겠다.
 	<select id="CH_FindInterstMovie" parameterType="ChoiceMovie" resultType="ChoiceMovie">

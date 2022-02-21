@@ -28,7 +28,7 @@ $(function(){
 			var email = $("#mail1").val() + "@" + $("#mail2").val();
 			
 			if(!regId.test(id)){
-				alert("아이디는 영문자로 시작하고 4~20자, 영문자 또는 숫자만 입력가능합니다.");
+				alert("아이디는 영문 소문자로 시작하고 4~20자, 영문 소문자 또는 숫자만 입력가능합니다.");
 				$("#m_id").focus();
 				$("#m_id").value="";
 				event.preventDefault();

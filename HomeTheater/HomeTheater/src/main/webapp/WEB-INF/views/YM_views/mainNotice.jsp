@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
 
-<title>공지사항페이지야~~~</title>
+<title>공지사항 목록 페이지야~~~</title>
 
 <style type="text/css">
 /* 공통부분 ------------------------------------------------*/
@@ -165,12 +165,13 @@
 					
 					<input type="text">
 					<input type="submit" value="검색">
-					
 				</div>
 				
-				<div>
-					<button onclick="location.href='noticeWriteForm?bbs_category=${bbs.bbs_category}'">글쓰기</button>
-				</div>
+				<c:if test="${sessionScope.sessionId == 'admin'}">	<!-- 관리자로 로그인 했을때만 새글 쓰기 버튼 보여줌. -->
+					<div>
+						<button onclick="location.href='noticeWriteForm?bbs_category=${bbs.bbs_category}'">글쓰기</button>
+					</div>
+				</c:if>
 				
 				<div>
 					<h2 class="hidden">페이지 이동버튼</h2>
