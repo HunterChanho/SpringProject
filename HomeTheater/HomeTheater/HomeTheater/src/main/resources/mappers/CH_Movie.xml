@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CH_Dao">
+	<select id="CH_SearchMovieList" parameterType="Movie" resultType="Movie">
+		select * from movie where mo_title like '%${mo_title}%'
+	</select>
+	<select id="CH_SearchBbsList" parameterType="Bbs" resultType="Bbs">
+		select * from bbs where bbs_title like '%${bbs_title}%'
+	</select>
+	<select id="CH_SearchUserInfo" parameterType="String" resultType="Member">
+		select * from member where m_id = #{m_id}
+	</select>
+	<update id="CH_MemberUpdate" parameterType="Member">
+		update member set m_name = #{m_name}, m_phonenumber = #{m_phonenumber}, m_address = #{m_address}, m_email = #{m_email} where m_id = #{m_id}
+	</update>
+	<delete id="CH_MemberDelete" parameterType="String">
+		delete from member where m_id = #{m_id}
+	</delete>
+	<select id="CH_IdCheck" parameterType="String" resultType="int">
+		select count(m_id) from member where m_id = #{m_id}
+	</select>
+	<select id="CH_CheckEmail_Pw" parameterType="String" resultType="String">
+		select m_email from member where m_id = #{m_id}
+	</select>
+	<update id="CH_TempPasswrodUpdate" parameterType="Member">
+		update member set m_password = #{m_password} where m_id = #{m_id}
+	</update>
+	<select id="CH_PhoneCheck" parameterType="String" resultType="int">
+		select count(m_phonenumber) from member where m_phonenumber = #{m_phonenumber}
+	</select>
+	<select id="CH_CheckEmail_Id" parameterType="String" resultType="String">
+		select m_email from member where m_phonenumber = #{m_phonenumber}
+	</select>
+	<select id="CH_FindName" parameterType="String" resultType="String">
+		select m_name from member where m_phonenumber = #{m_phonenumber}
+	</select>
+	<select id="CH_FindId" parameterType="String" resultType="String">
+		select m_id from member where m_phonenumber = #{m_phonenumber}
+	</select>
+	<update id="CH_MemberPwUpdate" parameterType="Member">
+		update member set m_password = #{m_password} where m_id = #{m_id}
+	</update>
+	<select id="CH_GetMoNumList" parameterType="ChoiceMovie" resultType="int">
+		select mo_number from choiceMovie where m_id = #{m_id} and m_selected = 'T'
+	</select>
+	<select id="CH_InterestMovieList" parameterType="Movie" resultType="Movie">
+		select * from movie where mo_number = #{mo_number}
+ 	</select> 
+	<select id="CH_CheckReservationInfo" parameterType="Reservation" resultType="Reservation">
+		select m.mo_title, m.mo_fileName, r.m_id, r.mo_number, r.re_number, r.se_time, r.se_number, r.se_date, r.re_date, r.pay_how, r.pay_totalprice from movie m, reservation r where m_id = #{m_id} and m.mo_number = r.mo_number(+)
+	</select>
+	<select id="CH_SearchSeatInfo" parameterType="SeatandTime" resultType="SeatandTime">
+		 select r.re_number, s.se_date, s.se_number, s.se_time, r.mo_number from seatandtime s, reservation r where r.mo_number = s.mo_number(+) and m_id = #{m_id}
+	</select>
+	<select id="CH_MemberList" parameterType="Member" resultType="Member">
+		select * from member where m_id not in('admin')
+	</select>
+	<update id="CH_AdminUpdateMember" parameterType="Member">
+		update member set m_id = #{m_id}, m_name = #{m_name}, m_phonenumber = #{m_phonenumber}, m_address = #{m_address}, m_email = #{m_email}, m_point = #{m_point} where m_id = #{m_id}
+	</update>
+	<select id="CH_ReservationList" parameterType="Reservation" resultType="Reservation">
+		select m_id, mo_number, re_number, se_number, se_date, se_time from reservation order by m_id
+	</select>
+	<update id="CH_AdminUpdateReservation" parameterType="Reservation">
+		update reservation set m_id = #{m_id}, mo_number = #{mo_number}, re_number = #{re_number}, se_number = #{se_number}, se_date = #{se_date}, se_time = #{se_time} where m_id = #{m_id}
+	</update>
+	<select id="CH_MainBbsList" parameterType="bbs" resultType="bbs">
+		select bbs_title, bbs_category, bbs_no, bbs_date from bbs where bbs_category='1' order by bbs_date desc	
+	</select>
+</mapper>
+<!-- 서브쿼리를 이용해서 조회하려했는데 실패함, 나중에 해봐야겠다.
+	<select id="CH_FindInterstMovie" parameterType="ChoiceMovie" resultType="ChoiceMovie">
+		select * from movie where mo_number in (select mo_number from choicemovie where m_id=#{m_id} and m_selected='T')
+ 	</select> 
+!-->
+	

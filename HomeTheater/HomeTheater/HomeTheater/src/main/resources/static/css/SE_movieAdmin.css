@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+.movieInfo-form {
+	margin-left: 30%;
+	text-align: left;
+}
+
+.movieInfoName {
+	text-align: left;
+	display: inline-block;
+	width: 80px;
+}
+
+.adminBtn {
+	text-align: center;
+}
+
+.movieInfo {
+	text-align: left;
+	display: inline-block;
+}
+
+.admin_button {
+	margin: 10px;
+	position: relative;
+	right: 35%;
+}
