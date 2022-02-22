@@ -2,6 +2,7 @@ package com.oracle.HomeTheater.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +10,10 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oracle.HomeTheater.model.Bbs;
+import com.oracle.HomeTheater.service.CH_Service;
 import com.oracle.HomeTheater.service.Paging;
 import com.oracle.HomeTheater.service.YM_Service;
 
@@ -23,7 +25,8 @@ import com.oracle.HomeTheater.service.YM_Service;
 public class YM_Controller {
 	@Autowired
 	private YM_Service ymService;
-	
+	@Autowired
+	private CH_Service cs;
 	
 ////main 페이지
 //	@RequestMapping(value = "main")
@@ -34,7 +37,7 @@ public class YM_Controller {
 	
 //메인페이지 -> 공지사항클릭
 	@RequestMapping(value="YM_views/mainNotice")
-	public String mainNotice(Model model,Bbs bbs, String currentPage) {
+	public String mainNotice(Model model,Bbs bbs, String currentPage, HttpServletRequest request) {
 		System.out.println("YM_Contorller mainNotice Start...");
 		
 		System.out.println("YM_Contorller 글작성 버튼에서 넘어온 bbs.getBbs_category()->"+bbs.getBbs_category() );
@@ -61,8 +64,37 @@ public class YM_Controller {
 		bbs.setStart(pg.getStart());   // 시작시 1
 		bbs.setEnd(pg.getEnd());      	//시작시 10
 		
+		// 검색기능을 위해 추가한 부분
+		List<Bbs> listBbs = null;
+		String searchValue = request.getParameter("searchValue");
+		String selectBox = request.getParameter("selectBox");
+		int bbs_category = bbs.getBbs_category();
+		
+		System.out.println("입력받은 검색값:"+searchValue);
+		System.out.println("입력받은 셀렉값:"+selectBox);
+		System.out.println("카테고리:"+bbs.getBbs_category());
+		if(selectBox==null || searchValue==null) {
+			listBbs = ymService.listBbs(bbs);
+		}else {
+			// 검색 조회에 필요한 값들 셋팅
+			bbs.setBbs_title(searchValue);
+			bbs.setBbs_content(searchValue);
+			bbs.setM_id(searchValue);
+			bbs.setBbs_category(bbs_category);
+			
+			if(selectBox.equals("전체")) {
+				listBbs = cs.bbsSearchTotal(bbs);
+			}else if(selectBox.equals("제목")) {
+				listBbs = cs.bbsSearchTitle(bbs);
+			}else if(selectBox.equals("내용")) {
+				listBbs = cs.bbsSearchContent(bbs);
+			}else if(selectBox.equals("작성자")) {
+				listBbs = cs.bbsSearchId(bbs);
+			}
+		} // 검색기능을 위해 추가한 부분 end
+		
+		
 		//show list
-		List<Bbs> listBbs = ymService.listBbs(bbs);
 		System.out.println("YM_Contorller list listBbs.size()=>" + listBbs.size());
 		model.addAttribute("total", total);
 		model.addAttribute("pg", pg);
