@@ -70,9 +70,6 @@ public class YM_Controller {
 		String selectBox = request.getParameter("selectBox");
 		int bbs_category = bbs.getBbs_category();
 		
-		System.out.println("입력받은 검색값:"+searchValue);
-		System.out.println("입력받은 셀렉값:"+selectBox);
-		System.out.println("카테고리:"+bbs.getBbs_category());
 		if(selectBox==null || searchValue==null) {
 			listBbs = ymService.listBbs(bbs);
 		}else {
