@@ -1,7 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+timer();
+var current=0;
+var $interval;
+
+function timer(){
+  var $interval=setInterval(function(){slide()},4000);                        
+}
+
+function slide(){
+  $(".bannerbox").animate(1000,function(){
+    $(this).css({"left":0});
+    $(".bannerbox").append( $("#slid").children("li").eq(0) );
+  });    
+  current++;
+  if(current==5)current=0;
+}    
+</script>
 <title>메인페이지</title>
 <style>
 .container{
@@ -47,15 +66,45 @@ h4{
 	background-color: black;
 	color: white;
 	font-size: 15px;
+	text-align: center;
+}
+.slidebanner{
+	position:relative;
+	height:330px;
+	width:1200px;
+	overflow:hidden;
+}
+.slidebanner .bannerbox{
+	position:absolute;
+	margin-top: 50px;
+	margin-left: 112px;
+	padding:0;
+}
+.slidebanner li{
+	float:left;
+	list-style:none;
+	margin-left:10px
+}
+.slidebanner li:first-child{
+	margin:0
 }
 </style>
 </head>
 <body>
 <div class="container">
 	<div class="content">
-
 	<%@ include file="header.jsp"%>
 	<div class="content2">
+	<div class="slidebanner">
+  		<ul class="bannerbox" id="slid">    
+		    <li><img src="<%=context%>/img/slide1.png" alt="error" /></li>
+  			<li><img src="<%=context%>/img/slide2.png" alt="error" /></li>
+  			<li><img src="<%=context%>/img/slide3.png" alt="error" /></li>
+  			<li><img src="<%=context%>/img/slide4.png" alt="error" /></li>
+  			<li><img src="<%=context%>/img/slide5.png" alt="error" /></li>
+  		</ul>                
+	</div>
+	
 	<h1>______</h1>
 	<h2 class="main_title">영화</h2>
 	<h4 class="sub_title">현재 상영작</h4><br>
@@ -91,12 +140,21 @@ h4{
 	<!-- 최신 공지사항 순으로 나열 -->
 	<ul>	
 		<li>
-			<c:forEach var="bbs" items="${mainBbsList}" begin="0" end="2">	
-				<label class="noticeDate">${fn:replace(bbs.bbs_date,'-',' ')}</label>
-				<a href="YM_views/noticeContents?bbs_no=${bbs.bbs_no }&bbs_category=${bbs.bbs_category}">${bbs.bbs_title}</a>
-			</c:forEach>			
+			<table class="newNotic" style="table-layout:fixed">
+				<tr>
+				<c:forEach var="bbs" items="${mainBbsList}" begin="0" end="2">	
+					<td width="10px">
+						<label class="noticeDate">${fn:replace(bbs.bbs_date,'-',' ')}</label>
+					</td>	
+					<td width="240px">	
+						<a href="YM_views/noticeContents?bbs_no=${bbs.bbs_no }&bbs_category=${bbs.bbs_category}">${bbs.bbs_title}</a>
+					</td>
+				</c:forEach>
+				</tr>
+			</table>			
 		</li>
 	</ul>
+	
 	<br><br><br>
 	<button type="button" class="moreBtn" onclick="location.href='YM_views/mainNotice'">더보기+</button>
 	<br><br><br>

@@ -69,7 +69,7 @@
 		select bbs_title, bbs_category, bbs_no, bbs_date from bbs where bbs_category='1' order by bbs_date desc	
 	</select>
 	<select id="CH_BbsSearchTotal" parameterType="bbs" resultType="bbs">
-		select * from bbs where bbs_title like '%${bbs_title}%' or bbs_content like '%${bbs_content}%' or m_id like '%${m_id}%' and bbs_category = #{bbs_category}
+		select * from bbs where bbs_category = #{bbs_category} and (bbs_title like '%${bbs_title}%' or bbs_content like '%${bbs_content}%' or m_id like '%${m_id}%')
 	</select>
 	<select id="CH_BbsSearchTitle" parameterType="bbs" resultType="bbs">
 		select * from bbs where bbs_category = #{bbs_category} and bbs_title like '%${bbs_title}%'
