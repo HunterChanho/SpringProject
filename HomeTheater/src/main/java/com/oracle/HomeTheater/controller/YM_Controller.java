@@ -81,12 +81,16 @@ public class YM_Controller {
 			
 			if(selectBox.equals("전체")) {
 				listBbs = cs.bbsSearchTotal(bbs);
+				total = listBbs.size();
 			}else if(selectBox.equals("제목")) {
 				listBbs = cs.bbsSearchTitle(bbs);
+				total = listBbs.size();
 			}else if(selectBox.equals("내용")) {
 				listBbs = cs.bbsSearchContent(bbs);
+				total = listBbs.size();
 			}else if(selectBox.equals("작성자")) {
 				listBbs = cs.bbsSearchId(bbs);
+				total = listBbs.size();
 			}
 		} // 검색기능을 위해 추가한 부분 end
 		

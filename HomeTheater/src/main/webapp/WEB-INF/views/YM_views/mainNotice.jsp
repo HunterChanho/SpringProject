@@ -148,13 +148,15 @@ function searchBbs(){
 		</form>
 	
 		
-		<h3>Total : ${total}</h3>
+		
+		<c:if test="${fn:length(listBbs)==0}">
+			<h3>Total : ${total}</h3>
+			<h2>검색한 결과가 없습니다.</h2>
+		</c:if>
 		<!-- 전체 테이블 -->
-		<table border="1">
-			<c:if test="${fn:length(listBbs)==0}">
-					<h2>검색한 결과가 없습니다.</h2>
-			</c:if>
-			<c:if test="${fn:length(listBbs)!=0}">
+		<c:if test="${fn:length(listBbs)!=0}">
+			<h3>Total : ${total}</h3>
+			<table border="1">		
 				<thead>
 					<tr>
 						<th>번호</th>
@@ -176,8 +178,8 @@ function searchBbs(){
 						</tr>
 					</c:forEach> 
 				</tbody>
-			</c:if>
-		</table>
+			</table>
+		</c:if>
 		
 		<!-- paging -->
 		<c:if test="${pg.startPage > pg.pageBlock }">
