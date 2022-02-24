@@ -23,18 +23,21 @@
 			<th>주소</th>
 			<th>이메일</th>
 			<th>잔여포인트</th>	
-			<th colspan="2">수정/삭제</th>
+			<th>탈퇴여부</th>
+			<th colspan="3">수정/삭제/복구</th>
 		</tr>
 		<c:forEach var="member" items="${memberList}" varStatus="status">
-			<tr><td>${status.index+1}</td>
+			<tr><td><input type="text" class="index" value="${status.index+1}" readonly></td>
 				<td><input type="text" id="m_id${status.index}" class="m_id" value="${member.m_id}" readonly></td>
-				<td><input type="text" id="m_name${status.index}" value="${member.m_name}"></td>
+				<td><input type="text" id="m_name${status.index}" class="m_name" value="${member.m_name}"></td>
 				<td><input type="text" id="m_phonenumber${status.index}" value="${member.m_phonenumber}"></td>
 				<td><input type="text" id="m_address${status.index}" class="m_address" value="${member.m_address}"></td>
 				<td><input type="text" id="m_email${status.index}" value="${member.m_email}"></td>
 				<td><input type="text" id="m_point${status.index}" class="m_point" value="${member.m_point}"></td>
+				<td><input type="text" id="m_delchk${status.index}" class="m_delchk" value="${member.m_delchk}"></td>
 				<td><input type="button" class="button" value="수정" onclick="updateMember(${status.index})"></td>
 				<td><input type="button" class="button" value="삭제" onclick="deleteMember(${status.index})"></td>
+				<td><input type="button" class="button" value="복구" onclick="restorationMember(${status.index})"></td>
 			</tr>
 		</c:forEach>
 	</table>

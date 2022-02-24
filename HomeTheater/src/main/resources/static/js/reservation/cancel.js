@@ -22,6 +22,7 @@ function cancel(re_number, se_date, se_number, se_time, mo_number) {
             .then((json) => {
                 if (json === 1) {
                     alert("예매취소 성공")
+                    location.reload();
                 } else {
                     alert("예매취소 실패")
                 }

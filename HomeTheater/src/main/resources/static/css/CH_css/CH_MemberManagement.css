@@ -1,13 +1,32 @@
 @CHARSET "UTF-8";
+.index{
+	width: 20px;
+}
+.index:focus{
+	outline: none;
+}
 .m_id{
 	background-color: #EAEAEA;
 	width: 100px;
 }
+.m_id:focus{
+	outline: none;
+}
+.m_name{
+	width: 70px;
+}
 .m_address{
-	width: 250px;
+	width: 230px;
 }
 .m_point{
 	width: 70px;
+}
+.m_delchk{
+	background-color: #EAEAEA;
+	width: 70px;
+}
+.m_delchk:focus{
+	outline: none;
 }
 .subject{
 	text-align: left;
@@ -16,6 +35,10 @@
 }
 table input{
 	border: 1px solid white;
+	text-align: center;
+}
+.button{
+	border: 1px solid black;
 }
 .button:hover{
 	background: black;

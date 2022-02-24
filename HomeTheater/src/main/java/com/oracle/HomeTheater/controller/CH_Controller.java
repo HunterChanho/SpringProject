@@ -231,6 +231,14 @@ public class CH_Controller {
 		return delete;
 	}
 	
+	// 관리자 회원복구
+	@GetMapping(value = "adminRestorationMember")
+	@ResponseBody
+	public int adminRestorationMember(@RequestParam("m_id") String m_id) {
+		int deleteBack = cs.adminRestorationMember(m_id);
+		return deleteBack;
+	}
+	
 	// 관리자 예약리스트
 	@RequestMapping(value = "reservationList")
 	public String reservationList(Reservation reservation, Model model) {
@@ -245,7 +253,6 @@ public class CH_Controller {
 	@ResponseBody
 	public int adminUpdateReservation(Reservation reservation) {
 		System.out.println("CH_Contorller adminUpdateReservation Start...");
-		// 외래키 담은 테이블 수정할때 제약조건 에러 발생 -> 오라클에서 alter table 테이블명 drop  CONSTRAINT SYS_번호; 하면 제약조건 삭제가능
 		int update = cs.adminUpdateReservation(reservation);
 		return update;
 	}

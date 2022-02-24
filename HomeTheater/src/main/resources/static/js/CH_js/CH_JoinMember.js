@@ -53,7 +53,7 @@ $(function(){
 				$("#mail1").value="";
 				event.preventDefault();
 			}else{
-				alert("회원가입을 축하합니다!!");
+				alert("회원가입을 축하합니다!! 포인트 5000점이 지급됩니다!");
 			}
 		}
 	})

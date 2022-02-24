@@ -11,6 +11,7 @@ import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.model.MovieLike;
+import com.oracle.HomeTheater.model.SeatandTime;
 
 @Repository
 public class SE_DaoImpl implements SE_Dao {
@@ -226,6 +227,35 @@ public class SE_DaoImpl implements SE_Dao {
 			System.out.println("SE_DaoImpl updateChoiceMovieCancle Exception->" + e.getMessage());
 		}
 
+		return result;
+	}
+
+	@Override
+	public List<SeatandTime> listSeatandTimes(int mo_number) {
+		List<SeatandTime> seatandTimeList = null;
+		
+		System.out.println("SE_DaoImpl listSeatandTimes Start ...");
+		System.out.println("mo_number : "+mo_number);
+		try {
+			seatandTimeList = session.selectList("SE_ListAllSeatandTimes",mo_number);
+			System.out.println("SE_DaoImpl seatandTimeList " + seatandTimeList.size());
+		} catch (Exception e) {
+			System.out.println("SE_DaoImpl listSeatandTimes Exception->" + e.getMessage());
+		}
+		return seatandTimeList;
+	}
+
+	@Override
+	public int adminMovieUpdateSeatAndTime(SeatandTime seatandTime) {
+		System.out.println("SE_DaoImpl adminMovieUpdateSeatAndTime Start ...");
+		int result = 0;
+		try {
+			result= session.insert("SE_InsertSeatAndTime", seatandTime);
+			System.out.println("SE_DaoImpl adminMovieUpdateSeatAndTime resultStr->" + result);
+		} catch (Exception e) {
+			System.out.println("SE_DaoImpl adminMovieUpdateSeatAndTime Exception->" + e.getMessage());
+		}
+		
 		return result;
 	}
 }

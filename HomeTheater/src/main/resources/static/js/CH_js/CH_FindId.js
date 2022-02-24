@@ -44,7 +44,7 @@ function checkEmail(){
 	})
 }
 
-// 인증번호 확인하기
+//인증번호 확인하기
 function checkNum(){
 	var inputNum = $("#inputNum").val();
 	var num = $("#num").val();
@@ -60,7 +60,8 @@ function checkNum(){
 		success: function(id){
 			if(id!=""){
 				alert("인증성공! 회원님의 아이디는: [" + id + "]입니다.");
-	
+				$(".btn").css("display","none");
+				$(".btn2").css("display","inline-block");
 			}else{
 				alert("인증실패");
 				document.emailCert.inputNum.focus();

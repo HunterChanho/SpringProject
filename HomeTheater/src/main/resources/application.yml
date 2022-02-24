@@ -30,7 +30,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: cksghrha@gmail.com
-    password: SpringHometheater4!
+    password: 
     properties:
       mail:
         smtp:
@@ -53,3 +53,7 @@ mybatis:
 #logging.level:
 #  org.hibernate.SQL: debug
   # org.hibernate.type: trace
+
+# 정적소스 서버 재시작없이 반영
+spring.devtools.livereload.enabled: true
+spring.freemarket.cache: false 

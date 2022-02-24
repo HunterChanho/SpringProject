@@ -18,7 +18,7 @@
 	    	<input type="text" id="m_id" name="m_id" placeholder="ID"><br><br>
 	    	<b id="idPw">비밀번호</b><br>
 	    	<input type="password" id="m_password" name="m_password" placeholder="PASSWORD"><br><br>
-	    	<input class="btn" type="submit" value="로그인" style="font-weight: bold;">
+	    	<input class="btnLogin" type="submit" value="로그인" style="font-weight: bold;">
     	</form>
     	<!-- 아이디 비밀번호 오류메시지 출력 -->
     <c:if test="${not empty loginMessage}">

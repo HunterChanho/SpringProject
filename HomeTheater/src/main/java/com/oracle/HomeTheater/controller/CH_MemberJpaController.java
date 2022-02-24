@@ -16,10 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oracle.HomeTheater.domain.MemberJpa;
 import com.oracle.HomeTheater.service.CH_MemberJpaService;
+import com.oracle.HomeTheater.service.CH_Service;
 
 @Controller
 public class CH_MemberJpaController {
 	private final CH_MemberJpaService memberJpaService;
+	
+	@Autowired
+	private CH_Service cs;
 	
 	@Autowired
 	public CH_MemberJpaController(CH_MemberJpaService memberJpaService) {
@@ -70,9 +74,17 @@ public class CH_MemberJpaController {
 		System.out.println("sessionUrl =" + sessionUrl);
 		session.invalidate();
 		MemberJpa memberVO = memberJpaService.loginUser(member.getM_id(), member.getM_password());
-
+		
 		if (memberVO == null) {
 			model.addAttribute("loginMessage", "아이디 혹은 비밀번호가 틀립니다.");
+			return "CH_view/CH_Login";
+		}
+		
+		// 탈퇴한 회원인지 확인
+		String delchk = cs.delchk(member.getM_id());
+		System.out.println("체크="+delchk);
+		if(delchk.equals("T")) {
+			model.addAttribute("loginMessage","탈퇴한 회원입니다.");
 			return "CH_view/CH_Login";
 		}
 		// 로그인 성공 처리

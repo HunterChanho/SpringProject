@@ -25,6 +25,7 @@
 		    	<input type="button" id="sendEmail" value="임시 비밀번호 발급"><br><br>
 		    	<input type="submit" class="btn" value="확인" style="font-weight: bold;">
 		    	<input type="button" class="btn" value="취소" style="font-weight: bold;" onclick="location.href='loginForm'">
+		    	<input type="button" class="btn2" value="로그인하러가기" style="font-weight: bold;" onclick="location.href='loginForm'">
 	    	</form>
     	</div>
  	<%@ include file="../footer.jsp"%>

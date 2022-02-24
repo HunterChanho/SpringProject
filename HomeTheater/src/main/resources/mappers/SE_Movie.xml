@@ -76,4 +76,11 @@ insert into choiceMovie values(#{m_id},#{mo_number},'T')
  delete from choiceMovie where mo_number=#{mo_number} and m_id=#{m_id}
 </delete>
 
+<select id="SE_ListAllSeatandTimes" parameterType="int" resultType="SeatandTime">
+select DISTINCT SE_DATE,se_time  FROM SEATANDTIME where mo_number = #{mo_number}
+</select>
+
+<insert id="SE_InsertSeatAndTime" parameterType="SeatandTime">
+insert into seatandTime values(#{se_number},#{se_time},#{se_date},#{mo_number},#{se_identify})
+</insert>
 </mapper>

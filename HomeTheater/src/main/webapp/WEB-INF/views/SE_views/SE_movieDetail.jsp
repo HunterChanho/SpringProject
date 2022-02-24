@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -9,8 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet"
-	href="css/movieDetail.css">	
+<link rel="stylesheet" href="css/movieDetail.css">
 <title>상세정보</title>
 
 </head>
@@ -40,41 +39,43 @@ function movieDelete(){
 				<img class="detail-image" src="/${movie.mo_fileName }" alt="">
 			</div>
 			<div class="box-content">
-				<div class="movie-title" >
-					${movie.mo_title }
-				</div>
+				<div class="movie-title">${movie.mo_title }</div>
 				<div class="ect_detail">추천 수: ${movie.mo_recommendation }</div>
 				<hr>
 				<div class="spec">
-					감독&nbsp :&nbsp ${movie.mo_director }<br> 배우 &nbsp: &nbsp${movie.mo_actor }<br>
-					장르 &nbsp:&nbsp ${movie.mo_genre }<br> 기본 &nbsp: &nbsp${movie.mo_age },${movie.mo_playTime }<br>
+					감독&nbsp :&nbsp ${movie.mo_director }<br> 배우 &nbsp:
+					&nbsp${movie.mo_actor }<br> 장르 &nbsp:&nbsp ${movie.mo_genre }<br>
+					기본 &nbsp: &nbsp${movie.mo_age },${movie.mo_playTime }<br>
 				</div>
 			</div>
-	<div class= "btn_box">
-			<c:choose>
-				<c:when test="${sessionScope.sessionId == 'admin'}">
-					<div class="admin_btn_box">
-						<button type="button" class="admin_btn" id="movieUpdate"
-							onclick="location.href='adminMovieUpdateForm?mo_number=${movie.mo_number}'">수정</button>
-						<button type="button" class="admin_btn" id="movieDelete"
-							onclick="movieDelete()">삭제</button>
-					</div>
-				</c:when>
-				<c:otherwise>
-					<div class="ect_box">
-						<button type="button" class = "ect-btn" id="choiceMovie" style="font-size: 15px;">관심</button>
-						<button type="button" class = "ect-btn" id="reservation">예매하기</button>
-						<button type="button" class = "ect-btn" id="recommendationLike">추천</button>
-					</div>
+			<div class="btn_box">
+				<c:choose>
+					<c:when test="${sessionScope.sessionId == 'admin'}">
+						<div class="admin_btn_box">
+							<button type="button" class="admin_btn" id="movieSeatAndTime"
+								onclick="location.href='adminMovieUpdateSeatAndTimeForm?mo_number=${movie.mo_number}'">좌석 입력</button>
+							<button type="button" class="admin_btn" id="movieUpdate"
+								onclick="location.href='adminMovieUpdateForm?mo_number=${movie.mo_number}'">수정</button>
+							<button type="button" class="admin_btn" id="movieDelete"
+								onclick="movieDelete()">삭제</button>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="ect_box">
+							<button type="button" class="ect-btn" id="choiceMovie"
+								style="font-size: 15px;">관심</button>
+							<button type="button" class="ect-btn" id="reservation">예매하기</button>
+							<button type="button" class="ect-btn" id="recommendationLike">추천</button>
+						</div>
 
-				</c:otherwise>
+					</c:otherwise>
 
-			</c:choose>
+				</c:choose>
 
-		</div>
+			</div>
 		</div>
 		<%@include file="../footer.jsp"%>
-		</div>
+	</div>
 </body>
 
 <script>

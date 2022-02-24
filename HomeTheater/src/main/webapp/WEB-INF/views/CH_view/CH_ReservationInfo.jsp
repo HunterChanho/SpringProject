@@ -45,6 +45,6 @@
  	<%@ include file="../footer.jsp"%>	
  </div>
 </div>
-<script type="text/javascript" src="js/cancel.js"></script>
+<script type="text/javascript" src="js/reservation/cancel.js"></script>
 </body>
 </html>

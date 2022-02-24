@@ -29,7 +29,7 @@
 
 		<ul>
 			<c:forEach var="movie" items="${listRecommendMovie }">
-				<li><img class="list_image" src="/${movie.mo_fileName }" alt=""><br>
+				<li><a href="movieDetail?mo_number=${movie.mo_number }"><img class="list_image" src="/${movie.mo_fileName }" alt="" ></a><br>
 					<a href="movieDetail?mo_number=${movie.mo_number }"> 영화정보 </a>|<a href="#"> 상영시간 </a>|<a href="/reservation?mo_number=${movie.mo_number }"> 예매하기 </a></li>
 			</c:forEach>
 		</ul>

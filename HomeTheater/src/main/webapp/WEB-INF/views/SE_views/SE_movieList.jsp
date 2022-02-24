@@ -3,7 +3,7 @@
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/SE_movieAdmin.css">
+<link rel="stylesheet" href="css/movieAdmin.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!DOCTYPE html>
@@ -19,42 +19,31 @@
 }
 </style>
 </head>
+
+<script type="text/javascript">
+</script>
 <body>
 	<div class="container">
 		<%@ include file="../header.jsp"%>
 		<h1>______</h1>
-		<c:if test="${sessionScope.sessionId == 'admin'}">
-			<h2 class="main_title">영화수정/삭제</h2>
-		</c:if>
-		<c:if test="${sessionScope.sessionId != 'admin'}">
-			<h2 class="main_title">영화</h2>
-		</c:if>
+		<h2 class="main_title">영화</h2>
 		<br>
-		<%-- <c:if test="${sessionScope.sessionId == 'admin'}">
+		<c:if test="${sessionScope.sessionId == 'admin'}">
 			<div class="admin_button">
 				<button type="button" class="movie_button" id="movieAdd"
-					onclick="location.href='adminMovieAddForm'">
-					영화 등록
+					href=location.href='adminMovieAddForm'>
+					영화 등록</a>
 				</button>
 			</div>
-		</c:if> --%>
+		</c:if>
 
 		<ul>
-		<c:if test="${sessionScope.sessionId == 'admin'}">
 			<c:forEach var="movie" items="${listMovie }">
 				<li><img class="list_image" src="/${movie.mo_fileName }" alt="">
 					<br> <a href="movieDetail?mo_number=${movie.mo_number }">
-						영화수정/삭제 </a></li>
-			</c:forEach>
-		</c:if>
-		<c:if test="${sessionScope.sessionId != 'admin'}">
-			<c:forEach var="movie" items="${listMovie }">
-				<li><img class="list_image" src="/${movie.mo_fileName }" alt="">
-					<br> <a href="movieDetail?mo_number=${movie.mo_number }">
-						영화정보 </a>|<a href="#"> 상영시간 </a>|<a
+						영화정보 </a>|<a href="#" class = "movieTime-Btn" onclick="movieTimePopup(${movie.mo_number})"> 상영시간 </a>|<a
 					href="/reservation?mo_number=${movie.mo_number }"> 예매하기 </a></li>
 			</c:forEach>
-		</c:if>
 		</ul>
 
 
@@ -81,5 +70,18 @@
 		<%@ include file="../footer.jsp"%>
 	</div>
 </body>
+
+<%-- 영화 상영시간 팝업 --%>
+<script>
+function movieTimePopup(mo_number){
+	var url = "movieTimePopup?mo_number="+mo_number;
+	var name="movieTimePopup";
+	var option="width=600, height=600, left=100,top=50";
+	
+	window.open(url,name,option);
+	
+}
+	
+</script>
 
 </html>

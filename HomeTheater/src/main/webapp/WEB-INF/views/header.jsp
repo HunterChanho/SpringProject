@@ -26,7 +26,6 @@
 	background-color: white;
 	border-color: black;
 	border: 1px solid black;
-    border-radius: 10px;
     font-size: 12px;
 }
 .content{

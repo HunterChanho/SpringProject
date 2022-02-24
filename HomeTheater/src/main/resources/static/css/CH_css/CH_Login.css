@@ -20,12 +20,13 @@
 #subForm{
 	font-size: 10px;
 }
-.btn{
-	border: 1px solid white;
+.btnLogin{
+	background-color: white;
 	width: 160px; 
 	height: 27px;
+	border-radius: 10px;
 }
-.btn:hover{
+.btnLogin:hover{
 	background: black;
 	color: white;
 }

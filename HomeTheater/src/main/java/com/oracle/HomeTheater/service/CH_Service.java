@@ -3,6 +3,7 @@ package com.oracle.HomeTheater.service;
 import java.util.List;
 
 import com.oracle.HomeTheater.model.Member;
+import com.oracle.HomeTheater.domain.MemberJpa;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Movie;
@@ -38,6 +39,8 @@ public interface CH_Service {
 	List<Bbs> bbsSearchTitle(Bbs bbs);
 	List<Bbs> bbsSearchContent(Bbs bbs);
 	List<Bbs> bbsSearchId(Bbs bbs);
+	String delchk(String m_id);
+	int adminRestorationMember(String m_id);
 
 
 }

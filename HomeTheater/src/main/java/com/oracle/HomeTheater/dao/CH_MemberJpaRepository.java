@@ -14,4 +14,5 @@ public interface CH_MemberJpaRepository extends JpaRepository<MemberJpa, String>
 	MemberJpa selectUserInfo(@Param("m_id")String m_id,@Param("m_password")String m_password);
 
 
+
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.oracle.HomeTheater.dao.CH_Dao;
+import com.oracle.HomeTheater.domain.MemberJpa;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.ChoiceMovie;
@@ -222,6 +223,22 @@ public class CH_ServiceImpl implements CH_Service {
 		bbsSearchId = cd.bbsSearchId(bbs);
 		return bbsSearchId;
 	}
+
+	@Override
+	public String delchk(String m_id) {
+		System.out.println("CH_ServiceImpl delchk Start...");
+		String delchk = cd.delchk(m_id);
+		return delchk;
+	}
+
+	@Override
+	public int adminRestorationMember(String m_id) {
+		int result = 0;
+		System.out.println("CH_ServiceImpl adminRestorationMember Start...");
+		result = cd.adminRestorationMember(m_id);
+		return result;
+	}
+
 
 
 	

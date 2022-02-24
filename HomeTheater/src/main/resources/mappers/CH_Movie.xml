@@ -14,9 +14,9 @@
 	<update id="CH_MemberUpdate" parameterType="Member">
 		update member set m_name = #{m_name}, m_phonenumber = #{m_phonenumber}, m_address = #{m_address}, m_email = #{m_email} where m_id = #{m_id}
 	</update>
-	<delete id="CH_MemberDelete" parameterType="String">
-		delete from member where m_id = #{m_id}
-	</delete>
+	<update id="CH_MemberDelete" parameterType="String">
+		update member set m_delchk = 'T' where m_id = #{m_id}
+	</update>
 	<select id="CH_IdCheck" parameterType="String" resultType="int">
 		select count(m_id) from member where m_id = #{m_id}
 	</select>
@@ -54,13 +54,13 @@
 		 select r.re_number, s.se_date, s.se_number, s.se_time, r.mo_number from seatandtime s, reservation r where r.mo_number = s.mo_number(+) and m_id = #{m_id}
 	</select>
 	<select id="CH_MemberList" parameterType="Member" resultType="Member">
-		select * from member where m_id not in('admin')
+		select * from member where m_id not in('admin') order by m_delchk
 	</select>
 	<update id="CH_AdminUpdateMember" parameterType="Member">
 		update member set m_id = #{m_id}, m_name = #{m_name}, m_phonenumber = #{m_phonenumber}, m_address = #{m_address}, m_email = #{m_email}, m_point = #{m_point} where m_id = #{m_id}
 	</update>
 	<select id="CH_ReservationList" parameterType="Reservation" resultType="Reservation">
-		select m_id, mo_number, re_number, se_number, se_date, se_time from reservation order by m_id
+		select m_id, mo_number, re_number, se_number, se_date, se_time from reservation order by mo_number
 	</select>
 	<update id="CH_AdminUpdateReservation" parameterType="Reservation">
 		update reservation set m_id = #{m_id}, mo_number = #{mo_number}, re_number = #{re_number}, se_number = #{se_number}, se_date = #{se_date}, se_time = #{se_time} where m_id = #{m_id}
@@ -80,6 +80,12 @@
 	<select id="CH_BbsSearchId" parameterType="bbs" resultType="bbs">
 		select * from bbs where bbs_category = #{bbs_category} and m_id like '%${m_id}%'
 	</select>
+	<select id="CH_Delchk" parameterType="String" resultType="String">
+		select m_delchk from member where m_id = #{m_id}
+	</select>
+	<update id="CH_AdminRestorationMember" parameterType="String">
+		update member set m_delchk = 'F' where m_id = #{m_id}
+	</update>
 </mapper>
 <!-- 서브쿼리를 이용해서 조회하려했는데 실패함, 나중에 해봐야겠다.
 	<select id="CH_FindInterstMovie" parameterType="ChoiceMovie" resultType="ChoiceMovie">

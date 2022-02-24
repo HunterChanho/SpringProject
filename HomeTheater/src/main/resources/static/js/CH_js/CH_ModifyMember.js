@@ -22,6 +22,9 @@ function checkPassword(){
 		document.changePassword.m_newPassword.focus();
 		event.preventDefault();
 	}
+	else{
+		alert("비밀번호 변경이 완료되었습니다.");
+	}
 }
 // 전체 회원 수정 체크
 function checkForm(){
@@ -40,6 +43,9 @@ function checkForm(){
 		$("#mail1").focus();
 		$("#mail1").value="";
 		event.preventDefault();
+	}
+	else{
+		alert("회원수정이 완료되었습니다.");
 	}
 }
 

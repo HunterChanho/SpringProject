@@ -32,6 +32,7 @@ public class CH_MemberJpaService {
 
 
 
+
 	
 	
 

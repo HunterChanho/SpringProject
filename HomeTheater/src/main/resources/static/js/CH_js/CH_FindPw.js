@@ -30,6 +30,8 @@ function checkEmail(){
 						},
 						success: function(){
 							alert("임시 비밀번호를 발송했습니다. 메일을 확인해주세요.");
+							$(".btn").css("display","none");
+							$(".btn2").css("display","inline-block");
 						}
 					}) // ajax 끝
 				}) // click function 끝

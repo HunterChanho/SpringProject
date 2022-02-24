@@ -12,6 +12,7 @@ import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.model.MovieLike;
+import com.oracle.HomeTheater.model.SeatandTime;
 
 @Service
 public class SE_ServiceImpl implements SE_Service {
@@ -143,6 +144,24 @@ public class SE_ServiceImpl implements SE_Service {
 		System.out.println("SE_ServiceImpl updateChoiceMovieCancle Start..." );
 		int resulit= sd.updateChoiceMovieCancle(map);
 		return resulit;
+	}
+
+	@Override
+	public List<SeatandTime> listSeatandTimes(int mo_number) {
+		System.out.println("SE_ServiceImpl listSeatandTimes Start..." );
+		List<SeatandTime> seatandTimesList = null;
+		seatandTimesList = sd.listSeatandTimes(mo_number);
+		System.out.println("movieList size ->  "+seatandTimesList.size());
+		return seatandTimesList;
+
+	}
+
+	@Override
+	public int adminMovieUpdateSeatAndTime(SeatandTime seatandTime) {
+		System.out.println("SE_ServiceImpl adminMovieUpdateSeatAndTime Start..." );
+		int result = 0;
+		result = sd.adminMovieUpdateSeatAndTime(seatandTime);
+		return result;
 	}
 
 	

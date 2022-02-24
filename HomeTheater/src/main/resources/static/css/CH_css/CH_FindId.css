@@ -29,12 +29,28 @@
 #sendEmail{
 	width: 152px;
 }
+#sendEmail:hover{
+	background: black;
+	color: white;
+	border-color: black;
+}
 .btn{
-	border: 1px solid white;
+	background-color: white;
 	width: 50px; 
 	height: 25px;
 }
 .btn:hover{
+	background: black;
+	color: white;
+}
+.btn2{
+	display: none;
+	background-color: white;
+	width: 155px;
+	height: 25px;
+	border-radius: 10px;
+}
+.btn2:hover{
 	background: black;
 	color: white;
 }

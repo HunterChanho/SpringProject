@@ -17,6 +17,20 @@
 table{
 	width: 1000px;
 }
+.index{
+	width: 20px;
+	border: 1px solid white;
+	text-align: center;
+}
+.index:focus{
+	outline: none;
+}
 .m_id{
 	background-color: #EAEAEA;
+	
+}
+.inputValue_seDate{
+	width: 70px;
+	text-align: center;
+	border: 1px solid white;
 }

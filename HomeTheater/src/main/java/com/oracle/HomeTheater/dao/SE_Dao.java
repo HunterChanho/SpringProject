@@ -7,6 +7,7 @@ import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.model.MovieLike;
+import com.oracle.HomeTheater.model.SeatandTime;
 
 public interface SE_Dao {
 
@@ -42,6 +43,10 @@ public interface SE_Dao {
 	int insertChoiceMovie(Map<String, Object> map);
 
 	int updateChoiceMovieCancle(Map<String, Object> map);
+
+	List<SeatandTime> listSeatandTimes(int mo_number);
+
+	int adminMovieUpdateSeatAndTime(SeatandTime seatandTime);
 
 
 }

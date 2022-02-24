@@ -28,6 +28,7 @@ import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.model.Movie;
 import com.oracle.HomeTheater.model.MovieLike;
+import com.oracle.HomeTheater.model.SeatandTime;
 import com.oracle.HomeTheater.service.SE_Service;
 
 
@@ -76,7 +77,10 @@ public class SE_Controller {
 		model.addAttribute("choiceCheck", choiceCheck);
 		System.out.println("check-> : " + check);
 		model.addAttribute("check", check);
-
+		
+		// 최근폰 영화 목록 만들기
+		session.setAttribute("mo_number", mo_number);
+		System.out.println("넘버="+mo_number);
 		model.addAttribute("movie", movie);
 		model.addAttribute("member", member);
 
@@ -222,4 +226,44 @@ public class SE_Controller {
 		}
 		return check;
 	}
+	//상영 시간 표
+	@RequestMapping(value="movieTimePopup")
+	public String movieTimePopup(int mo_number,Model model) {
+		System.out.println("SE_Contorller Start movieTimePopup..." );
+		List<SeatandTime> seatandTimes = ses.listSeatandTimes(mo_number);
+		model.addAttribute("seatandTimeList", seatandTimes);
+		
+		return "SE_views/SE_movieTimePopup";
+	}
+	
+	//좌석 일정 추가하는 폼
+	@RequestMapping(value = "adminMovieUpdateSeatAndTimeForm")
+	public String adminMovieUpdateSeatAndTimeForm(int mo_number,Model model) {
+		System.out.println("SE_Contorller Start adminMovieUpdateSeatAndTimeForm..." );
+		model.addAttribute("mo_number",mo_number);
+		
+		return "SE_views/SE_adminMovieUpdateSeatAndTimeForm";
+	}
+	
+
+	//좌석 일정 추가 처리하는 컨트롤러
+	@RequestMapping(value = "adminMovieUpdateSeatAndTime", method = RequestMethod.POST)
+	public String adminMovieUpdateSeatAndTime(SeatandTime seatandTime, Model model) {
+		System.out.println("SE_Contorller Start adminMovieUpdateSeatAndTime..." );
+		
+		System.out.println("getnumber:"+seatandTime.getMo_number());
+		model.addAttribute("mo_number",seatandTime.getMo_number());
+		int result = ses.adminMovieUpdateSeatAndTime(seatandTime);
+		// 결과가 1이면 성공, 0이면 실패
+				if (result ==1) {
+					System.out.println("성공");
+					return "redirect:movieDetail?mo_number="+seatandTime.getMo_number();
+				} else {
+					System.out.println("실패");
+					model.addAttribute("msg", 0);
+					return "forward:adminMovieUpdateSeatAndTimeForm";
+				}
+		
+	}
+
 }

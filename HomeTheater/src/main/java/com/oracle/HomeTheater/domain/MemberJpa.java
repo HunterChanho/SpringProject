@@ -25,7 +25,7 @@ public class MemberJpa{
 	private String m_phonenumber;
 	private String m_address;
 	private String m_email;
-	
+	private String m_delchk;
 	
 	
 

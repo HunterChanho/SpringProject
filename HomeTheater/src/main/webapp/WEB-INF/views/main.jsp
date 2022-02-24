@@ -94,6 +94,9 @@ h4{
 <div class="container">
 	<div class="content">
 	<%@ include file="header.jsp"%>
+	<c:if test="${not empty message}">
+    	<script>alert(message);</script>
+    </c:if>
 	<div class="content2">
 	<div class="slidebanner">
   		<ul class="bannerbox" id="slid">    
