@@ -111,7 +111,7 @@
 		 		</div>
 	 		</div>
 	 		<br><br>
-	 		 
+	 		<input type="hidden" name="m_delchk" value="F">
 	 		<input class="btn" type="submit" id="reg_submit" value="확인" style="font-weight: bold;">
 	 		<input class="btn" type="button" value="취소" style="font-weight: bold;" onclick="history.back()">
 	 	</form>
