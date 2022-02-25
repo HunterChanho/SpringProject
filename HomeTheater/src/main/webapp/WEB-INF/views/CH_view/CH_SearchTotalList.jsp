@@ -72,7 +72,14 @@
 					</tr>				
 					<c:forEach var="bbs" items="${SearchBbsList }">		
 					<tr>
-						<td>${bbs.bbs_category}</td>
+						<td>
+						<c:if test="${bbs.bbs_category eq '1'}">
+							${fn:replace(bbs.bbs_category,'1','공지사항')}
+						</c:if>
+						<c:if test="${bbs.bbs_category eq '2'}">
+							${fn:replace(bbs.bbs_category,'2','QNA')}
+						</c:if>
+						</td>
 						<td><a href="YM_views/noticeContents?bbs_no=${bbs.bbs_no }&bbs_category=${bbs.bbs_category}">${bbs.bbs_title}</a></td>
 						<td>${bbs.bbs_date}</td>
 						<td>${bbs.bbs_hit}</td>

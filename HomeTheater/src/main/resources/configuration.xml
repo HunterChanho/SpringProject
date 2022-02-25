@@ -10,5 +10,6 @@
 		<typeAlias alias="ChoiceMovie" type="com.oracle.HomeTheater.model.ChoiceMovie"/>	
 		<typeAlias alias="Reservation"  type="com.oracle.HomeTheater.model.Reservation"/>
 		<typeAlias alias="SeatandTime"  type="com.oracle.HomeTheater.model.SeatandTime"/>
+		<typeAlias alias="Actor"  type="com.oracle.HomeTheater.model.Actor"/>
 	</typeAliases>
 </configuration>

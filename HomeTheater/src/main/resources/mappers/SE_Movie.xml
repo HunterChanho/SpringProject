@@ -77,7 +77,7 @@ insert into choiceMovie values(#{m_id},#{mo_number},'T')
 </delete>
 
 <select id="SE_ListAllSeatandTimes" parameterType="int" resultType="SeatandTime">
-select DISTINCT SE_DATE,se_time  FROM SEATANDTIME where mo_number = #{mo_number}
+select DISTINCT SE_DATE,se_time  FROM SEATANDTIME where mo_number = #{mo_number} order by se_date, se_time
 </select>
 
 <insert id="SE_InsertSeatAndTime" parameterType="SeatandTime">

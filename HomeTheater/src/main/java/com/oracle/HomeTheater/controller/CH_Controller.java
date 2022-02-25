@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.oracle.HomeTheater.model.Actor;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Member;
@@ -255,6 +256,15 @@ public class CH_Controller {
 		System.out.println("CH_Contorller adminUpdateReservation Start...");
 		int update = cs.adminUpdateReservation(reservation);
 		return update;
+	}
+	
+	// 영화배우 정보 팝업
+	@GetMapping(value = "actorInfo")
+	public String actorInfo(Actor actor,int mo_number, Model model) {
+		System.out.println("CH_Contorller actorInfo Start...");
+		List<Actor> actorList = cs.actorList(mo_number);
+		model.addAttribute("actorList", actorList);
+		return "CH_view/CH_ActorInfo";
 	}
 	
 	

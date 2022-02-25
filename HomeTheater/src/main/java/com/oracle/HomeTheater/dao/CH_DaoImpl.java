@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.oracle.HomeTheater.model.Member;
 import com.oracle.HomeTheater.domain.MemberJpa;
+import com.oracle.HomeTheater.model.Actor;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Movie;
@@ -354,6 +355,18 @@ public class CH_DaoImpl implements CH_Dao {
 			System.out.println("CH_DaoImpl adminRestorationMember Excetption->"+e.getMessage());
 		}
 		return result;
+	}
+
+	@Override
+	public List<Actor> actorList(int mo_number) {
+		System.out.println("CH_DaoImpl actorList Start...");
+		List<Actor> actorList = null;
+		try {
+			actorList = session.selectList("CH_ActorList", mo_number);
+		} catch (Exception e) {
+			System.out.println("CH_DaoImpl actorList Excetption->"+e.getMessage());
+		}
+		return actorList;
 	}
 
 

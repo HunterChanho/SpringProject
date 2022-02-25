@@ -91,7 +91,7 @@ a:hover{
 %>
 <div class="logo">
 	<a href="<%=context%>/main">
-		<img src="<%=context%>/img/logo1.png" style="" width="250px" height="100">
+		<img src="<%=context%>/img/logo1.png" style="width: 250px; height: 100px;">
 	</a>
 </div>
 

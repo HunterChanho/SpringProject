@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.oracle.HomeTheater.dao.CH_Dao;
 import com.oracle.HomeTheater.domain.MemberJpa;
 import com.oracle.HomeTheater.model.Member;
+import com.oracle.HomeTheater.model.Actor;
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.model.ChoiceMovie;
 import com.oracle.HomeTheater.model.Movie;
@@ -238,6 +239,15 @@ public class CH_ServiceImpl implements CH_Service {
 		result = cd.adminRestorationMember(m_id);
 		return result;
 	}
+
+	@Override
+	public List<Actor> actorList(int mo_number) {
+		System.out.println("CH_ServiceImpl actorList Start...");
+		List<Actor> actorList = cd.actorList(mo_number);
+		return actorList;
+	}
+
+
 
 
 

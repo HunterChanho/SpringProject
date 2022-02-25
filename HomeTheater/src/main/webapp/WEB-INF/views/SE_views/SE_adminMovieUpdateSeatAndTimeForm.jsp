@@ -40,7 +40,7 @@ margin-left: 25%;
 				<ul>
 					<li><label class="movieSeatInfo">상영 날짜</label>
 						<div class="seatAndTimeInfo-input">
-							<input type="date" name="se_date" id="se_date"
+							<input type="text" name="se_date" id="se_date"
 								required="required">
 						</div>
 					</li>

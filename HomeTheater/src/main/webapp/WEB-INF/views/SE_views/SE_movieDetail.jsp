@@ -44,7 +44,7 @@ function movieDelete(){
 				<hr>
 				<div class="spec">
 					감독&nbsp :&nbsp ${movie.mo_director }<br> 배우 &nbsp:
-					&nbsp${movie.mo_actor }<br> 장르 &nbsp:&nbsp ${movie.mo_genre }<br>
+					&nbsp<a href="#" onclick="actorInfo(${movie.mo_number})">${movie.mo_actor}</a><br> 장르 &nbsp:&nbsp ${movie.mo_genre }<br>
 					기본 &nbsp: &nbsp${movie.mo_age },${movie.mo_playTime }<br>
 				</div>
 			</div>
@@ -77,7 +77,16 @@ function movieDelete(){
 		<%@include file="../footer.jsp"%>
 	</div>
 </body>
-
+<script>
+<%-- 영화배우 정보 팝업 --%>
+function actorInfo(mo_number){
+	var url = "actorInfo?mo_number="+mo_number;
+	var name="actorInfo";
+	var option="width=600, height=600, left=100,top=50";
+	
+	window.open(url,name,option);
+}
+</script>
 <script>
 		$(document).ready(function () {
 			var likecheck = ${check};

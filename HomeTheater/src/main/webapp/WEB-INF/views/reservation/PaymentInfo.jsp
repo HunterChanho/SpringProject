@@ -6,28 +6,51 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 function iamport(){
-	//const{IMP} = window;
+	var lastPayPrice = $("#nowamount").text();
+	var m_id = $("#m_id").val();
+    var se_identify = $("#se_identify").val();
+    var se_time = $("#se_time").val();
+    var se_date = $("#se_date").val();
+    var se_number = $("#se_number").val();
+    var mo_number = $("#mo_number").val();
+    var pay_totalprice = $("#pay_totalprice").val();
+    var m_point = $("#m_point").val();
+	var pay_how = $("#pay_how").val();
 	//가맹점 식별코드
 	IMP.init('imp03662835');
 	IMP.request_pay({
-	    pg : 'html5_inicis',
+	    pg : 'kakaopay',
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
-	    name : '상품1' , //결제창에서 보여질 이름
-	    amount : 0, //실제 결제되는 가격
+	    name : '영화티켓' , //결제창에서 보여질 이름
+	    amount : lastPayPrice, //실제 결제되는 가격
 	    buyer_email : 'iamport@siot.do',
-	    buyer_name : '홍길동',
+	    buyer_name : m_id,
 	    buyer_tel : '010-1234-5678',
 	    buyer_addr : '서울 강남구 도곡동',
-	    buyer_postcode : '123-456'
+	    buyer_postcode : '123-456',
+/* 	    m_redirect_url: 'Payment' */
 	}, function(rsp) {
-		console.log(rsp);
-	    if ( rsp.success ) {
+	    if (rsp.success ) {
 	    	var msg = '결제가 완료되었습니다.';
-	        msg += '고유ID : ' + rsp.imp_uid;
-	        msg += '상점 거래ID : ' + rsp.merchant_uid;
-	        msg += '결제 금액 : ' + rsp.paid_amount;
-	        msg += '카드 승인번호 : ' + rsp.apply_num;
+	    	$.ajax({
+	        	url: "Payment",
+	        	type: "POST",
+	        	data: {
+	        		"m_id": m_id,
+	        		"se_identify": se_identify,
+	        		"se_time": se_time,
+	        		"se_date": se_date,
+	        		"se_number": se_number,
+	        		"mo_number": mo_number,
+	        		"pay_totalprice": pay_totalprice,
+	        		"m_point": m_point,
+	        		"pay_how": pay_how
+	        	},
+	        	success: function(){
+	        		location.href="main";
+	        	}
+	        })
 	    } else {
 	    	 var msg = '결제에 실패하였습니다.';
 	         msg += '에러내용 : ' + rsp.error_msg;
@@ -109,25 +132,24 @@ td{
 	  		</div>
 
 	  	</details>
-	  <form action="Payment" id="form" method="post">
-		  <input type="hidden" name="m_id" value="${memberInfo.m_id}">
-		  <input type="hidden" name="se_identify" value="${seatandTime.se_identify}">
-		  <input type="hidden" name="se_time" value="${seatandTime.se_time}">
-		  <input type="hidden" name="se_date" value="${seatandTime.se_date}">
-		  <input type="hidden" name="se_number" value="${seatandTime.se_number}">
-		  <input type="hidden" name="mo_number" value="${seatandTime.mo_number}">
-		  <input type="hidden" id="pay_totalprice" name="pay_totalprice" value="13000">
-		  <input type="hidden" id="m_point"        name="m_point" value="${memberInfo.m_point}">
+		  <input type="hidden" name="m_id" id="m_id" value="${memberInfo.m_id}">
+		  <input type="hidden" name="se_identify" id="se_identify" value="${seatandTime.se_identify}">
+		  <input type="hidden" name="se_time" id="se_time" value="${seatandTime.se_time}">
+		  <input type="hidden" name="se_date" id="se_date" value="${seatandTime.se_date}">
+		  <input type="hidden" name="se_number" id="se_number" value="${seatandTime.se_number}">
+		  <input type="hidden" name="mo_number" id="mo_number" value="${seatandTime.mo_number}">
+		  <input type="hidden" id="pay_totalprice" id="pay_totalprice" name="pay_totalprice" value="13000">
+		  <input type="hidden" id="m_point"       id="m_point"  name="m_point" value="${memberInfo.m_point}">
 	  	<b class="stepBar">STEP 3.</b>
 	  	<details>
 	  		<summary>최종결제수단</summary>
 	  		<div class="finalPayment">
-		  		<label id="finalPayment"><input type="radio" name="pay_how" value="신용카드" checked onclick="payhow()">신용카드</label>&emsp;&emsp;
-		  		<label id="finalPayment"><input type="radio" name="pay_how" value="휴대폰결제" onclick="payhow()">휴대폰 결제</label>&emsp;&emsp;
+		  		<label id="finalPayment"><input type="radio" name="pay_how" id="pay_how" value="카카오페이" checked onclick="payhow()">카카오페이</label>&emsp;&emsp;
+		  		<!-- <label id="finalPayment"><input type="radio" name="pay_how" value="휴대폰결제" onclick="payhow()">휴대폰 결제</label>&emsp;&emsp;
 		  		<label id="finalPayment"><input type="radio" name="pay_how" value="계좌이체" onclick="payhow()">계좌이체</label>&emsp;&emsp;
 		  		<label id="finalPayment"><input type="radio" name="pay_how" value="간편결제" onclick="payhow()">간편결제</label>&emsp;&emsp;
 		  		<label id="finalPayment"><input type="radio" name="pay_how" value="내통장결제" onclick="payhow()">내통장결제</label>&emsp;&emsp;
-		  		<label id="finalPayment"><input type="radio" name="pay_how" value="토스" onclick="payhow()">토스</label>&emsp;&emsp;
+		  		<label id="finalPayment"><input type="radio" name="pay_how" value="토스" onclick="payhow()">토스</label>&emsp;&emsp; -->
 	  		</div>
 	  	</details>
 	  	</div>
@@ -170,11 +192,10 @@ td{
 	   				<td>($남은 결제금액)</td>
 	   			</tr>
 	  		</table>--%>
-	  		<input type="submit" class="btn btn-outline-secondary" value="결제하기"> <%--onclick="iamport();--%>
+	  		<input type="submit" class="btn btn-outline-secondary" value="결제하기" onclick="iamport()"> 
 	  	</div>
 	  	
 	  <%@ include file="../footer.jsp"%> 
-  </form>
  </div>
 </div>
 <script type="text/javascript" src="js/reservation/payment.js"></script>
