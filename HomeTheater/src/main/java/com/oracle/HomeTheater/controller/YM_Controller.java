@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 
 import com.oracle.HomeTheater.model.Bbs;
 import com.oracle.HomeTheater.service.CH_Service;
@@ -28,16 +28,12 @@ public class YM_Controller {
 	@Autowired
 	private CH_Service cs;
 	
-////main 페이지
-//	@RequestMapping(value = "main")
-//	public String main() {
-//		System.out.println("CH_Contorller main Start...");
-//		return "main";
-//	}
+	
+
 	
 //메인페이지 -> 공지사항클릭
 	@RequestMapping(value="YM_views/mainNotice")
-	public String mainNotice(Model model,Bbs bbs, String currentPage, HttpServletRequest request) {
+	public String mainNotice(Model model,Bbs bbs, String currentPage,  HttpServletRequest request) {
 		System.out.println("YM_Contorller mainNotice Start...");
 		
 		System.out.println("YM_Contorller 글작성 버튼에서 넘어온 bbs.getBbs_category()->"+bbs.getBbs_category() );
@@ -81,16 +77,12 @@ public class YM_Controller {
 			
 			if(selectBox.equals("전체")) {
 				listBbs = cs.bbsSearchTotal(bbs);
-				total = listBbs.size();
 			}else if(selectBox.equals("제목")) {
 				listBbs = cs.bbsSearchTitle(bbs);
-				total = listBbs.size();
 			}else if(selectBox.equals("내용")) {
 				listBbs = cs.bbsSearchContent(bbs);
-				total = listBbs.size();
 			}else if(selectBox.equals("작성자")) {
 				listBbs = cs.bbsSearchId(bbs);
-				total = listBbs.size();
 			}
 		} // 검색기능을 위해 추가한 부분 end
 		
@@ -179,7 +171,7 @@ public class YM_Controller {
 			System.out.println("YM_Contorller contentsUpdate db data input bbsContentsUpdate->"+bbsContentsUpdate );		
 			if(bbsContentsUpdate>0) {
 				System.out.println("YM_Contorller contentsUpdate db data bbsContentsUpdate 성공");		
-			    return "redirect:mainNotice";
+			    return "forward:mainNotice";
 			}else {
 				System.out.println("YM_Contorller contentsUpdate db data bbsContentsUpdate 실패");		
 				model.addAttribute("입력실패 확인해보세요");

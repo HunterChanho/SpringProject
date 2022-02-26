@@ -13,7 +13,7 @@
 
 		<%@ include file="../header.jsp"%>
 		<h1>______</h1>
-		<h2 class="main_title">영화 수정</h2>
+		<h2 class="main_title">영화 등록</h2>
 		<br>
 		<div class="movieInfo-form">
 			<form action="adminMovieUpdate" name="updateMovie" method="post">
@@ -77,8 +77,8 @@
 				</ul>
 
 				<div class="adminBtn">
-					<button type="submit" value="수정" id="movieUpdate"
-						onclick="movieUpdateClick()">수정</button>
+					<button type="submit" value="등록" id="movieUpdate"
+						onclick="movieUpdateClick()">등록</button>
 					<button type="button" id="movieUpdateCancle"
 						onclick="history.back()">취소</button>
 				</div>

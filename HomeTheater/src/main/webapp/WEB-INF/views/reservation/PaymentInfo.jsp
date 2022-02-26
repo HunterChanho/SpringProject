@@ -4,6 +4,61 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+    function iamport(id,address,email,phonenumber){
+        var lastPayPrice = $("#nowamount").text();
+        var m_id = $("#m_id").val();
+        var se_identify = $("#se_identify").val();
+        var se_time = $("#se_time").val();
+        var se_date = $("#se_date").val();
+        var se_number = $("#se_number").val();
+        var mo_number = $("#mo_number").val();
+        var pay_totalprice = $("#pay_totalprice").val();
+        var m_point = $("#m_point").val();
+        var pay_how = $("#pay_how").val();
+        //가맹점 식별코드
+        IMP.init('imp03662835');
+        IMP.request_pay({
+            pg : 'kakaopay',
+            pay_method : 'card',
+            merchant_uid : 'merchant_' + new Date().getTime(),
+            name : id , //결제창에서 보여질 이름
+            amount : 100, //실제 결제되는 가격
+            buyer_email : email,
+            buyer_name : id,
+            buyer_tel : phonenumber,
+            buyer_addr : address,
+            buyer_postcode : '123-456',
+            /* 	    m_redirect_url: 'Payment' */
+        }, function(rsp) {
+            if (rsp.success ) {
+                var msg = '결제가 완료되었습니다.';
+                $.ajax({
+                    url: "Payment",
+                    type: "POST",
+                    data: {
+                        "m_id": m_id,
+                        "se_identify": se_identify,
+                        "se_time": se_time,
+                        "se_date": se_date,
+                        "se_number": se_number,
+                        "mo_number": mo_number,
+                        "pay_totalprice": pay_totalprice,
+                        "m_point": m_point,
+                        "pay_how": pay_how
+                    },
+                    success: function(re_number){
+                        location.href="PaymentResult?re_number="+re_number;
+                    }
+                })
+            } else {
+                var msg = '결제에 실패하였습니다.';
+                msg += '에러내용 : ' + rsp.error_msg;
+            }
+            alert(msg);
+        });
+    }
+</script>
 <title>결제</title>
 <style>
     .stepBar {
@@ -89,8 +144,8 @@
             <details>
                 <summary>최종결제수단</summary>
                 <div class="finalPayment">
-                    <label id="finalPayment1"><input type="radio" name="pay_how" id="pay_how" value="신용카드" checked
-                                                     onclick="payhow()">신용카드</label>&emsp;&emsp;
+                    <label id="finalPayment1"><input type="radio" name="pay_how" id="pay_how" value="카카오페이" checked
+                                                     onclick="payhow()">카카오페이</label>&emsp;&emsp;
                 </div>
             </details>
 
@@ -122,8 +177,6 @@
 
             <input type="button" class="btn btn-outline-secondary" value="결제하기"
                    onclick="iamport('${memberInfo.m_id}','${memberInfo.m_address}','${memberInfo.m_email}','${memberInfo.m_phonenumber}')">
-            <input type="button" class="btn btn-outline-secondary" value="테스트"
-                   onclick="test()">
         </div>
 
         <%@ include file="../footer.jsp" %>
