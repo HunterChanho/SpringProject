@@ -17,8 +17,9 @@
         background-color: white;
         border-color: black;
         border: 1px solid black;
-        border-radius: 10px;
+        border-radius: 3px;
         font-size: 12px;
+        cursor: pointer;
     }
     a {
         color: black;
@@ -120,6 +121,7 @@
     	background-color: white;
     	border-color: white;
     	border-radius: 10px;
+    	cursor: pointer;
     }
     .btnPay:hover{
     	background: black;

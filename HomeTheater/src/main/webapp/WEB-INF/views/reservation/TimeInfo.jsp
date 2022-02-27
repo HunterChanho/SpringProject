@@ -44,6 +44,19 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
+    .btnSeat{
+    	margin-top: 5px;
+    	background: white;
+    	border-radius: 3px;
+    	width: 70px;
+    	height: 25px;
+    	cursor: pointer;
+    	margin-bottom: 5px;
+    }
+    .btnSeat:hover{
+    	background: black;
+    	color: white;
+    }
 </style>
 </head>
 <body>
@@ -81,7 +94,7 @@
                       </c:forEach>--%>
                 </select>
                 <br>
-                <input type="submit" value="좌석선택" class="btn btn-outline-primary" >
+                <input type="submit" value="좌석선택" class="btnSeat" >
             </div>
         </form >
     </div>

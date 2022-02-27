@@ -69,25 +69,42 @@
         color: white;
         margin-top: 10px;
         margin-bottom: 1px;
+        width: 600px;
     }
     summary {
         font-size: 18px;
         text-align: left;
         background-color: #BDBDBD;
         color: black;
+        width: 600px;
     }
-    .finalPayment {
+    .finalPaymentCoupon {
         background-color: #BDBDBD;
+    	height: 80px;
+    	width: 600px;
+    }
+    .finalPaymentPoint {
+        background-color: #BDBDBD;
+    	height: 130px;
+    	width: 600px;
+    }
+    .finalPaymentMethod {
+        background-color: #BDBDBD;
+    	height: 30px;
+    	width: 600px;
     }
     #finalPayment {
         font-size: 15px;
+        position: absolute;
     }
     .pay {
         display: inline-block;
         width: 700px;
     }
     .totalPrice {
-        display: inline-block;
+        margin-top: -220px;
+        margin-left: 700px;
+        margin-bottom: 100px;
         width: 200px;
     }
     .menuBar {
@@ -99,6 +116,22 @@
     }
     td {
         border: 1px solid black;
+    }
+    #subTitle{
+    	background: #353535;
+    	color: white;
+    }
+    .btnUse{
+    	margin-top: 5px;
+    	background: white;
+    	border-radius: 3px;
+    	width: 70px;
+    	height: 25px;
+    	cursor: pointer;
+    }
+    .btnUse:hover{
+    	background: black;
+    	color: white;
     }
 </style>
 </head>
@@ -112,22 +145,22 @@
         <div><b class="stepBar">STEP 1.</b></div>
         <details>
             <summary>할인쿠폰</summary>
-            <div class="finalPayment">
+            <div class="finalPaymentCoupon">
                 <h4>쿠폰번호를 입력하세요.</h4>
                 <input type="text" id="coupon" placeholder="xxxx-xxxx-xxxx"><br>
-                <input type="button" value="사용하기" onclick="coupon()">
+                <input type="button" class="btnUse" value="사용하기" onclick="coupon()">
             </div>
         </details>
         <b class="stepBar">STEP 2.</b>
         <details>
             <summary>포인트 사용</summary>
-            <div class="finalPayment">
+            <div class="finalPaymentPoint">
                 <h4>보유 포인트</h4>
                 <input type="text" id="userpoint" value="${memberInfo.m_point}" readonly>&emsp;원
                 <!--  <input type="button" value="조회" onclick="location.href='Payment';">-->
                 <h4>사용할 포인트</h4>
                 <input type="text" id="usepoint">&emsp;원<br>
-                <input type="button" value="사용하기" onclick="usepoint()">
+                <input type="button" class="btnUse" value="사용하기" onclick="usepoint()">
             </div>
 
         </details>
@@ -143,18 +176,29 @@
             <b class="stepBar">STEP 3.</b>
             <details>
                 <summary>최종결제수단</summary>
-                <div class="finalPayment">
+                <div class="finalPaymentMethod">
                     <label id="finalPayment1"><input type="radio" name="pay_how" id="pay_how" value="카카오페이" checked
-                                                     onclick="payhow()">카카오페이</label>&emsp;&emsp;
+                                                     onclick="payhow()">&nbsp;카카오페이</label>
                 </div>
             </details>
 
-
             <div class="totalPrice">
             <table class="menuBar">
+                <tr>
+                    <td id="subTitle">할인내역</td>
+                </tr>
+                <tr>
+                    <td style="background: #BDBDBD;">총 할인금액</td>
+                </tr>
+                <tr>
+                    <td id="dicountamount">0</td>
+                </tr>
+            </table>
+            <i class="fas fa-solid fa-caret-down" style="font-size: 20px;"></i><br><br>
+			<table class="menuBar">
                 <thead>
                 <tr>
-                    <td>결제하실 금액</td>
+                    <td id="subTitle">결제하실 금액</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -163,18 +207,7 @@
                 </tr>
                 </tbody>
             </table>
-            <table class="menuBar">
-                <tr>
-                    <td id="sub">할인내역</td>
-                </tr>
-                <tr>
-                    <td>총 할인금액</td>
-                </tr>
-                <tr>
-                    <td id="dicountamount">0</td>
-                </tr>
-            </table>
-
+            <i class="fas fa-solid fa-caret-down" style="font-size: 20px;"></i><br><br>
             <input type="button" class="btn btn-outline-secondary" value="결제하기"
                    onclick="iamport('${memberInfo.m_id}','${memberInfo.m_address}','${memberInfo.m_email}','${memberInfo.m_phonenumber}')">
         </div>

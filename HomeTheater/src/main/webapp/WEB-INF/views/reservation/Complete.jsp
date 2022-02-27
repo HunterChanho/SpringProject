@@ -81,6 +81,19 @@
     .fontsize{
         font-size : 20px;
     }
+    .btnBack{
+    	margin-top: 5px;
+    	background: white;
+    	border-radius: 3px;
+    	width: 70px;
+    	height: 25px;
+    	cursor: pointer;
+    	margin-bottom: 5px;
+    }
+    .btnBack:hover{
+    	background: black;
+    	color: white;
+    }
 </style>
 </head>
 <body>
@@ -102,7 +115,7 @@
                 <a> 날짜:${seatandTime.se_date}</a><br>
                 <a> 시간:${seatandTime.se_time }</a><br>
                 <a> 남은포인트 :${memberInfo.m_point}</a><br>
-                <input type="button" value="예매취소" class="btn btn-outline-secondary"
+                <input type="button" value="예매취소" class="btnBack"
                        onclick="cancel('${seatandTime.re_number}','${seatandTime.se_date}','${seatandTime.se_number }','${seatandTime.se_time }','${seatandTime.mo_number}') ">
 
             </div>
