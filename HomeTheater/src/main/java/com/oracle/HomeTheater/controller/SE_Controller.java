@@ -77,10 +77,7 @@ public class SE_Controller {
 		model.addAttribute("choiceCheck", choiceCheck);
 		System.out.println("check-> : " + check);
 		model.addAttribute("check", check);
-		
-		// 최근폰 영화 목록 만들기
-		session.setAttribute("mo_number", mo_number);
-		System.out.println("넘버="+mo_number);
+
 		model.addAttribute("movie", movie);
 		model.addAttribute("member", member);
 
@@ -227,10 +224,13 @@ public class SE_Controller {
 		return check;
 	}
 	//상영 시간 표
+	@ResponseBody
 	@RequestMapping(value="movieTimePopup")
 	public String movieTimePopup(int mo_number,Model model) {
 		System.out.println("SE_Contorller Start movieTimePopup..." );
+		List<SeatandTime> findDate = ses.listFindDate(mo_number);
 		List<SeatandTime> seatandTimes = ses.listSeatandTimes(mo_number);
+		model.addAttribute("findDate",findDate);
 		model.addAttribute("seatandTimeList", seatandTimes);
 		
 		return "SE_views/SE_movieTimePopup";

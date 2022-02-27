@@ -49,5 +49,7 @@ public interface SE_Service {
 
 	int adminMovieUpdateSeatAndTime(SeatandTime seatandTime);
 
+	List<SeatandTime> listFindDate(int mo_number);
+
 
 }

@@ -48,13 +48,52 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="dateAndTime" items="${seatandTimeList}">
- ${dateAndTime.se_date}일|${dateAndTime.se_time}시<br>
+ 						${dateAndTime.se_date}일|${dateAndTime.se_time}시<br>
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
+			
+						<c:choose>
+				<c:when test="${empty findDate }">
+					상영 정보가 없습니다.
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="date" items="${findDate}">
+						<button class= "date_btn">${date.se_date}</button>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+			
+			
 		</div>
 	</div>
 </body>
+<script>
+$(".date_btn").on("click", function () {
+			var se_date = "${date.se_date}";
+	
+		   	 	 $.ajax({
+		  	     	     type : "POST",  
+		      	 	     url : "/movieTimePopup",       
+		      	 	     data : {'se_date':se_date},
+	          	 	     error:function(request, status, error){
+		      	  			alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		       	 	},
+		            success : function(data) {
+		            	
+		                    if(data == 0){
+		                    	alert("관심영화로 등록하셨습니다.");
+		                    	location.reload();
+		                    	
+		                    }
+		                  	  else if (data == 1){
+		                   	  alert("관심영화 등록을 취소하셨습니다.");
+		                    	location.reload();
+		                }
+		            }
+		        }); 
+})
+</script>
 
 
 </html>

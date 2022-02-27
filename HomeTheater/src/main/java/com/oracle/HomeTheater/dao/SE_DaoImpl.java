@@ -258,4 +258,19 @@ public class SE_DaoImpl implements SE_Dao {
 		
 		return result;
 	}
+
+	@Override
+	public List<SeatandTime> listFindDate(int mo_number) {
+		List<SeatandTime> findDate = null;
+		
+		System.out.println("SE_DaoImpl listFindDate Start ...");
+		System.out.println("mo_number : "+mo_number);
+		try {
+			findDate = session.selectList("SE_ListDate",mo_number);
+			System.out.println("SE_DaoImpl listFindDate " + findDate.size());
+		} catch (Exception e) {
+			System.out.println("SE_DaoImpl listFindDate Exception->" + e.getMessage());
+		}
+		return findDate;
+	}
 }

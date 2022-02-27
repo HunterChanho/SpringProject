@@ -48,5 +48,7 @@ public interface SE_Dao {
 
 	int adminMovieUpdateSeatAndTime(SeatandTime seatandTime);
 
+	List<SeatandTime> listFindDate(int mo_number);
+
 
 }

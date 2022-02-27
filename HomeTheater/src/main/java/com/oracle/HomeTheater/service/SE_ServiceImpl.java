@@ -164,5 +164,14 @@ public class SE_ServiceImpl implements SE_Service {
 		return result;
 	}
 
+	@Override
+	public List<SeatandTime> listFindDate(int mo_number) {
+		System.out.println("SE_ServiceImpl listFindDate Start..." );
+		List<SeatandTime> findDate = null;
+		findDate = sd.listFindDate(mo_number);
+		System.out.println("movieList size ->  "+findDate.size());
+		return findDate;
+	}
+
 	
 }

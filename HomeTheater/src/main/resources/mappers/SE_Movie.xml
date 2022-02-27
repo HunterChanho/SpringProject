@@ -38,7 +38,7 @@ DELETE FROM movieLike
 </update>
 
 <select id="SE_SelReCoMovie" resultType="Movie">
-select * from Movie order by mo_recommendation DESC
+select * from Movie order by mo_recommendation DESC, mo_number
 </select>
 
 <insert id="SE_InsMovie" parameterType="Movie" useGeneratedKeys="false">
@@ -83,4 +83,8 @@ select DISTINCT SE_DATE,se_time  FROM SEATANDTIME where mo_number = #{mo_number}
 <insert id="SE_InsertSeatAndTime" parameterType="SeatandTime">
 insert into seatandTime values(#{se_number},#{se_time},#{se_date},#{mo_number},#{se_identify})
 </insert>
+
+<select id="SE_ListDate" parameterType="int" resultType="SeatandTime">
+select DISTINCT SE_DATE  FROM SEATANDTIME where mo_number = #{mo_number} order by se_date
+</select>
 </mapper>
