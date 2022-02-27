@@ -28,14 +28,14 @@
 		<h1>______</h1>
 		<h2 class="main_title">영화</h2>
 		<br>
-		<c:if test="${sessionScope.sessionId == 'admin'}">
+		<%-- <c:if test="${sessionScope.sessionId == 'admin'}">
 			<div class="admin_button">
 				<button type="button" class="movie_button" id="movieAdd"
 					href=location.href='adminMovieAddForm'>
 					영화 등록</a>
 				</button>
 			</div>
-		</c:if>
+		</c:if> --%>
 
 		<ul>
 			<c:forEach var="movie" items="${listMovie }">

@@ -62,7 +62,7 @@
 				<b id="header">게시판정보</b>
 			</div>
 			<hr>
-				<table>
+				<table style="width: 800px;">
 					<tr>
 						<th>카테고리</th>
 						<th>제목</th>
