@@ -69,4 +69,33 @@ Spring
 6. 비밀번호 찾기
 ![image](https://user-images.githubusercontent.com/90196622/160065480-e93fd507-11ff-4d7f-ba65-ce2f5621cb4f.png)
 
+7. 마이페이지
+![image](https://user-images.githubusercontent.com/90196622/160065545-8d56250c-f03c-4231-9e84-02aeb42aa5b5.png)
+
+8. 회원정보변경
+![image](https://user-images.githubusercontent.com/90196622/160065593-9866afb0-0a81-4727-8284-9e04723217e5.png)
+
+9. 관심영화
+![image](https://user-images.githubusercontent.com/90196622/160065613-d14b53d2-4ae7-4fb3-9268-82de63a2bab9.png)
+
+10. 예약정보
+![image](https://user-images.githubusercontent.com/90196622/160065636-22e216b5-c7c9-4e7d-8175-f29bc9636bc8.png)
+
+11. 배우정보
+![image](https://user-images.githubusercontent.com/90196622/160065670-4d4318ba-1dcb-40e6-a1f8-e1ead940c998.png)
+
+12. 카카오페이(아임포트 API)
+![image](https://user-images.githubusercontent.com/90196622/160065735-316b16ff-0827-4e60-b2c2-c4883ab04f8e.png)
+
+13. 통합검색
+![image](https://user-images.githubusercontent.com/90196622/160065800-d31acc26-dae7-4c5c-8ed1-919eb8e09745.png)
+
+14. 관리자페이지
+![image](https://user-images.githubusercontent.com/90196622/160065838-2217fced-6a0c-441a-96b8-e435a3d599d3.png)
+
+15. 회원관리
+![image](https://user-images.githubusercontent.com/90196622/160065875-7b2ebd49-6238-4919-a752-424b25004b3b.png)
+
+16. 예약관리
+![image](https://user-images.githubusercontent.com/90196622/160065902-c0f87d13-b13c-4cf2-9c81-e27b8db0fe89.png)
 
