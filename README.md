@@ -41,5 +41,32 @@ Spring
 1. 아임포트 API를 이용한 테스트 결제 (카카오페이)
 2. 다음 API를 이용한 주소지 입력
 
-# 
+# ERD
+----------
 ![image](https://user-images.githubusercontent.com/90196622/160064940-3fd145b5-9680-4e4f-9b64-97477138c002.png)
+
+# 프로세스
+----------
+![image](https://user-images.githubusercontent.com/90196622/160065100-5196ebb0-9cbe-467a-9682-d807641ec8f7.png)
+
+# 화면구성
+----------
+1. 메인페이지
+![image](https://user-images.githubusercontent.com/90196622/160065281-d21f42bf-f581-4b7a-9abc-f3c6d1bbb8e2.png)
+
+2. 로그인
+![image](https://user-images.githubusercontent.com/90196622/160065321-a9baf640-363f-4daa-8556-b3024d6ecc5e.png)
+
+3. 이용약관
+![image](https://user-images.githubusercontent.com/90196622/160065372-377ad40d-94c8-4184-ad0e-2285e14432b9.png)
+
+4. 회원가입
+![image](https://user-images.githubusercontent.com/90196622/160065410-870b4af4-f62e-45b3-812a-4373a526e491.png)
+
+5. 아이디 찾기
+![image](https://user-images.githubusercontent.com/90196622/160065451-4a0be4b5-da6e-4653-bdb5-cd226a50239a.png)
+
+6. 비밀번호 찾기
+![image](https://user-images.githubusercontent.com/90196622/160065480-e93fd507-11ff-4d7f-ba65-ce2f5621cb4f.png)
+
+
